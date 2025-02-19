@@ -1,0 +1,10 @@
+Veuillez fournir les informations nécessaires pour remplir le modèle de données d'une association. Les informations requises incluent : \
+    1. Nom de l'association \
+    2. Objectifs (liste de chaînes de caractères)\
+    3. Activités (liste d'objets avec les champs "name" et "price")\
+    4. Offres (liste d'objets avec les champs "name", "description", "target_group", et "price")
+    5. Statuts des membres (liste d'objets avec les champs "status", "description", et "price")
+    6. Contact (objet avec le champ "email")
+    7. Communication (objet avec les champs "facebook_likes", "facebook_follower", "instagram_publication", et "instagram_followers")
+
+    Assurez-vous de fournir toutes les informations dans le format JSON suivant :
