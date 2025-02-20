@@ -183,6 +183,7 @@ def scrap_hdf_music():
 
     ## url_hdf
     url_annuaire = "https://music-hdf.org/annuaire?tt"
+    base_url = "https://music-hdf.org"
     response = requests.get(url_annuaire)
     response.encoding = 'utf-8'
     soup = BeautifulSoup(response.text, "html.parser")
@@ -197,6 +198,22 @@ def scrap_hdf_music():
         for lien in liens if "Prod live : Organisateur" in lien.text.strip() ## !!Only the organizer of
         ]
     
+    for dic in list_dic_prod_live_entities:
+        url_summary="".join([base_url,'/',dic['url_suffix']])
+        response_temp = requests.get(url_summary)
+        response_temp.encoding = 'utf-8'
+        soup_temp = BeautifulSoup(response_temp.text, "html.parser")
+        try :
+            url_entity = soup_temp.find_all("a", class_='inline-link')[0].get('href')
+        except:
+            url_entity = None
+            continue
+        try:
+            description = soup_temp.find("div", class_="col-5").get_text(strip=True)
+        except:
+            description=None
+        dic.update({'description': description, "url":url_entity})
+
     return list_dic_prod_live_entities
     
 
