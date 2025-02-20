@@ -54,7 +54,9 @@ def save_dict_to_text_files(data_dict, output_folder, base_url):
     Save the contents of a dictionary into multiple text files.
 
     Args:
-        data_dict (dict): A dictionary where the keys are filenames and values are the file contents.
+        data_dict (dict): A dictionary where the keys are filenames
+        and values are the file contents.
+        
         output_folder (str): Path to the folder where files will be saved.
 
     Returns:
@@ -63,32 +65,28 @@ def save_dict_to_text_files(data_dict, output_folder, base_url):
     # Create the folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
 
-    ## pattern for naming the files based on the url.
+    # pattern for naming the files based on the url.
     pattern = r"{}\/(.*)".format(re.escape(base_url))
-    
+
     # Iterate through the dictionary and save each value to a file
     for url, content in data_dict.items():
-        
-        file_name = re.search(pattern, url).group(1).replace('/','_') 
-        
+        file_name = re.search(pattern, url).group(1).replace('/','_')
         # Ensure the file has a .txt extension
         if not file_name.endswith(".txt"):
             file_name += ".txt"
-        
         # Define the full path of the file
         file_path = os.path.join(output_folder, file_name)
-        
+
         # Write the content to the file
         with open(file_path, 'w', encoding='utf-8') as file:
             file.write(content)
-    
     print(f"All files have been saved in {output_folder}")
 
 
 def anonymize_text(text):
     """
-    Anonymize sensitive information in a text, such as emails, phone numbers, credit card numbers, and personal identifiers.
-
+    Anonymize sensitive information in a text, such as emails, phone 
+        numbers, credit card numbers, and personal identifiers.
     Args:
         text (str): The input text to anonymize.
 
@@ -97,21 +95,20 @@ def anonymize_text(text):
     """
     # Mask email addresses
     text = re.sub(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', '[EMAIL REDACTED]', text)
-    
+
     # Mask phone numbers
     text = re.sub(r'\b\d{10,}\b', '[PHONE NUMBER REDACTED]', text)  # Numbers with 10 or more digits
-    text = re.sub(r'\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}', '[PHONE NUMBER REDACTED]', text)
-    
+    text = re.sub(r'\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}', \
+                  '[PHONE NUMBER REDACTED]', text)
     # Mask credit card numbers
     text = re.sub(r'\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b', '[CREDIT CARD REDACTED]', text)
-    
     # Mask dates (standard formats like DD/MM/YYYY or YYYY-MM-DD)
     text = re.sub(r'\b\d{1,2}[-/]\d{1,2}[-/]\d{2,4}\b', '[DATE REDACTED]', text)
     text = re.sub(r'\b\d{4}[-/]\d{2}[-/]\d{2}\b', '[DATE REDACTED]', text)
-    
+
     # Mask proper names (simple example based on capitalization)
     text = re.sub(r'\b[A-Z][a-z]+(?:\s[A-Z][a-z]+)*\b', '[NAME REDACTED]', text)
-    
+
     return text
 
 
@@ -137,7 +134,6 @@ def get_text_from_url(
         list_url : List[str],
         folder_name : str
         )-> None:
-    
 
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
@@ -170,7 +166,7 @@ def get_text_from_url(
         
         ## Etape 5 : Save the results.
         # file_name = url_to_filename(url_base)
-        
+
         file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
 
         file_path = os.path.join(folder_name, file_name)
@@ -179,4 +175,59 @@ def get_text_from_url(
             f.write(text)
     
     return None
+
+def scrap_hdf_music():
+    '''
+    Objective : Scraps and retrieve relevants informations from hdf_music.
+    '''
+
+    ## url_hdf
+    url_annuaire = "https://music-hdf.org/annuaire?tt"
+    response = requests.get(url_annuaire)
+    response.encoding = 'utf-8'
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    ## Get target html paragraph
+    liens = soup.find_all("a", class_="structure-liste")
+    dic={}
+
+    ## get the url and informations
+    list_dic_prod_live_entities = [
+        (dic := get_dic_from_summary(lien.text.strip())).update({"url_suffix": lien.get("href")}) or dic
+        for lien in liens if "Prod live : Organisateur" in lien.text.strip() ## !!Only the organizer of
+        ]
+    
+    return list_dic_prod_live_entities
+    
+
+def get_dic_from_summary(text):
+    '''
+    Objective : function that retrieves the summaries about the
+    entities in the directory of hdf.
+
+    Parameters : text is a summary of the entity. 
+    '''
+    # Nettoyage du texte en supprimant les caractères inutiles
+    text = text.replace("\xa0", " ").strip()
+    
+    # Extraction du nom (premier élément avant le statut)
+    match_nom = re.match(r"^(.*?)\s+\n", text)
+    nom = match_nom.group(1).strip() if match_nom else ""
+
+    # Extraction du statut (mot entre le nom et 'à Lieu')
+    match_statut = re.search(r"\n\s*(.*?)\s*\n\s*à", text)
+    statut = match_statut.group(1).strip() if match_statut else ""
+
+    # Extraction du lieu (après 'à' et avant les fonctions)
+    match_lieu = re.search(r"à\s*([^\n]+)", text)
+    lieu = match_lieu.group(1).strip() if match_lieu else ""
+
+    # Extraction des fonctions (tout ce qui suit)
+    fonctions = re.findall(r"×\s*(.*?)\s*(?:\n|$)", text)
+    fonctions_str = ", ".join(fonctions)
+
+    # Ajouter les données extraites à la liste
+    dic = { 'name': nom, 'status' : statut, 'localisation': lieu, 'functions' : fonctions_str } 
+
+    return dic
 
