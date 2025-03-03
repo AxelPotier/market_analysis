@@ -130,18 +130,27 @@ def url_to_filename(url):
     return filename
 
 
-def get_text_from_url(
-        list_url : List[str],
-        folder_name : str
+def get_text_from_urls(
+        list_tuple_filename_url : List[tuple],
+        folder_name : str,
+        gen_filename :bool
         )-> None:
+    '''
+    Objective: retrieves all the text of the website for each url.
 
+    Params : list_tuple_url_filename : is a list of tuple
+            (filename,url).
+            folder_name : is the name of the directory where
+            the texts are saved.
+            gen_filename : Generates a filename based on the url if chosen.
+    '''
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
         print(f"Le dossier '{folder_name}' a été créé.")
     else:
         print(f"Le dossier '{folder_name}' existe déjà.")
 
-    for url_base in list_url:
+    for file_name,url_base in list_tuple_filename_url:
         # Étape 1 : Trouver tous les liens internes
         liens = get_internal_links(url_base)
         print(f"Liens trouvés : {len(liens)}")
@@ -167,7 +176,9 @@ def get_text_from_url(
         ## Etape 5 : Save the results.
         # file_name = url_to_filename(url_base)
 
-        file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
+        ## generation of the name based on the url.
+        if gen_filename:
+            file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
 
         file_path = os.path.join(folder_name, file_name)
 
@@ -175,6 +186,89 @@ def get_text_from_url(
             f.write(text)
     
     return None
+
+
+
+
+def get_text_from_url(
+        url_base :str,
+        file_name:str,
+        folder_name : str
+        )-> None:
+    '''
+    Objective: retrieves all the text of the website for each url.
+
+    Params : list_tuple_url_filename : is a list of tuple
+            (filename,url).
+            folder_name : is the name of the directory where
+            the texts are saved.
+            gen_filename : Generates a filename based on the url if chosen.
+    '''
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+        print(f"Le dossier '{folder_name}' a été créé.")
+    else:
+        print(f"Le dossier '{folder_name}' existe déjà.")
+
+    # Étape 1 : Trouver tous les liens internes
+    liens = get_internal_links(url_base)
+    print(f"Liens trouvés : {len(liens)}")
+
+    # Étape 2 : Extraire le texte de chaque page
+    resultats = {}
+    for lien in liens:
+        print(f"Extraction du texte de : {lien}")
+        texte = get_text(lien)
+        if texte:
+            resultats[lien] = texte
+
+    ## Etape 3 : clean dictionnary
+    dic = {}
+    for key, item in resultats.items():
+        print(key)
+        dic[key] = " ".join(item.split())
+
+
+    ## Etape 4 : concatenate the texts
+    text = "".join([ item for key, item in dic.items() ])
+    
+    ## Etape 5 : Save the results.
+    # file_name = url_to_filename(url_base)
+
+    ## generation of the name based on the url.
+    if file_name is None:
+        file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
+
+    file_path = os.path.join(folder_name, file_name)
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(text)
+    
+    return None
+
+
+def get_texts_from_list_dic(
+        list_dic : List[dict],
+        folder_name:str
+    )-> None:
+    '''
+    Objective : Retrieve the texts based on a dictionary with keys: 
+    filename and url.
+
+    Parameters:
+        list_dic: the list of dictionnaries with the urls and filename 
+        to save.
+        folder_name: the name of the folder for saving the texts.    
+    '''
+    for dic in list_dic:
+        get_text_from_url(dic['url'],dic['file_name'], folder_name)
+    return None
+
+
+
+## --------------------------------------------------------------------
+## Scrapping functions specific for "https://music-hdf.org/annuaire?tt"
+##---------------------------------------------------------------------
 
 def scrap_hdf_music():
     '''
@@ -207,11 +301,11 @@ def scrap_hdf_music():
             url_entity = soup_temp.find_all("a", class_='inline-link')[0].get('href')
         except:
             url_entity = None
-            continue
         try:
             description = soup_temp.find("div", class_="col-5").get_text(strip=True)
         except:
             description=None
+
         dic.update({'description': description, "url":url_entity})
 
     return list_dic_prod_live_entities
