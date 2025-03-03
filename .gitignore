@@ -1,2 +1,3 @@
 *.p
 *.csv
+tests\webscrapped_texts
