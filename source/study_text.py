@@ -32,7 +32,7 @@ class StudyText:
 
     def load_results(self):
         """Charge les résultats existants pour éviter de recalculer."""
-        if os.path.exists("df.p"):
+        if os.path.exists(self.cache_file):
             self.df = pickle.load(open(self.cache_file,'rb'))
         else : 
             self.df = pd.DataFrame(columns=Entity.model_fields.keys())
@@ -110,7 +110,7 @@ class StudyText:
                 print(f"Error processing {file}: {e}")
 
     # @staticmethod
-    def augment_data_frame_with_other_informations(self,df_new_informations, right_on):
+    def augment_data_frame_with_other_informations(self,df_new_informations, left_on, right_on):
         '''
         Obective : introduce the new data frame in the attribute dataframe.
         '''
