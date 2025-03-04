@@ -2,3 +2,4 @@
 *.csv
 tests/webscrapped_texts
 tests/textes
+tests/html_facebook
