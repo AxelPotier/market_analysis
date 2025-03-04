@@ -1,3 +1,4 @@
 *.p
 *.csv
-tests\webscrapped_texts
+tests/webscrapped_texts
+tests/textes
