@@ -117,6 +117,7 @@ class StudyText:
         df_new_informations = self.df.merge(df_new_informations, left_on = 'text_name',
                                             right_on=right_on, how = 'left') 
         return df_new_informations
+     
 
 
     # def study_text(
