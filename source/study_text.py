@@ -29,6 +29,14 @@ class StudyText:
         self.cache_file = cache_file
         self.load_results()
 
+    
+    def update_prompt(
+            self,
+            path_prompt: str 
+            )-> None:
+        with open(path_prompt,"r",encoding="utf-8") as f:
+            self.prompt = f.read()
+
 
     def load_results(self):
         """Charge les résultats existants pour éviter de recalculer."""
@@ -59,9 +67,7 @@ class StudyText:
         Params: folder_path : the path of the folder containing the files
                         to be read.
         '''
-         ## settings of mistral
-        api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
-        model = "mistral-large-latest"
+
         processed_hashes = set(self.df["hash"])
 
         for file in os.listdir(folder_path):
@@ -80,13 +86,14 @@ class StudyText:
             
             try :
                 prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
-                      f"\\\n file name : {file}"
+                    f"\\\n file name : {file}"\
+                    +f"\n\n le texte à étudier: \n\n"\
+                    + text + f"\n_n fin du texte"
                 
                 print(text[:10])
 
                 client = Mistral(api_key=api_key)
                 
-
                 chat_response = client.chat.parse(
                     model=model,
                     messages=[
@@ -94,10 +101,10 @@ class StudyText:
                             "role": "system", 
                             "content": prompt
                         },
-                        {
-                            "role": "user", 
-                            "content": text
-                        },
+                        # {
+                        #     "role": "user", 
+                        #     "content": text
+                        # },
                     ],
                     response_format=Entity
                 )
@@ -109,6 +116,46 @@ class StudyText:
             except Exception as e:
                 print(f"Error processing {file}: {e}")
 
+
+
+    def study_text_with_mistral(
+        self,
+        text: str,
+        text_hash:str,
+        file_name:str
+        )-> dict:
+        '''
+        Objective : study a text using a specific model.
+        
+        '''
+        api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
+        model = "mistral-large-latest"
+        prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
+                    f"\\\n file name : {file_name}"\
+                    +f"\n\n le texte à étudier: \n\n"\
+                    + text + f"\n_n fin du texte"
+                
+        print(text[:10])
+
+        client = Mistral(api_key=api_key)
+        
+        chat_response = client.chat.parse(
+            model=model,
+            messages=[
+                {
+                    "role": "system", 
+                    "content": prompt
+                },
+                # {
+                #     "role": "user", 
+                #     "content": text
+                # },
+            ],
+            response_format=Entity
+        )
+        dic = json.loads(chat_response.choices[0].message.content)
+        return dic
+
     # @staticmethod
     def augment_data_frame_with_other_informations(self,df_new_informations, left_on, right_on):
         '''
@@ -119,53 +166,86 @@ class StudyText:
         return df_new_informations
      
 
+    def restudy_a_list_of_texts(
+            self, 
+            list_of_text_names: List[str],
+            folder_path:str
+            )->None:
+        '''
+        Objective : Study the texts in the provided list.
 
-    # def study_text(
-    #         folder_name : str
-    #         ):
-    #     '''
-    #     Objective : retrieves the  texts and outputs the json.
+        Params : list_of_text_names : a list with the name of the files that will
+                    be  studied.
+                folder_path : name of the folder where the files are.
+        '''
         
-    #     '''
+
+        ## settings of mistral
+        api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
+        model = "mistral-large-latest"
+        list_text_names = set(self.df["text_name"])
         
-    #     ## settings of mistral
-    #     api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
-    #     model = "mistral-large-latest"
 
-    #     # Retrieving the prompt
-    #     chemin_du_script = Path(__file__).parent  # Cela donne le chemin du fichier study_text.py
-    #     chemin_prompt = "../source/prompt.txt"
-
-    #     with open(chemin_prompt,"r",encoding="utf-8") as f:
-    #         prompt = f.read()
-
-    #     list_dic = []
-    #     for file in os.listdir(folder_name):
-
-    #         # Retrieving the text
-    #         file_path = os.path.join(folder_name,file)
-    #         if os.path.isfile(file_path):
-    #             with open(file_path,'r',encoding='utf-8') as f:
-    #                 text = f.read()
-    #         print(text[:10])
-
-    #         client = Mistral(api_key=api_key)
+        for file in os.listdir(folder_path):
             
+            if file in list_of_text_names:
+                # Retrieving the text
+                file_path = os.path.join(folder_path,file)
 
-    #         chat_response = client.chat.parse(
-    #             model=model,
-    #             messages=[
-    #                 {
-    #                     "role": "system", 
-    #                     "content": prompt
-    #                 },
-    #                 {
-    #                     "role": "user", 
-    #                     "content": text
-    #                 },
-    #             ],
-    #             response_format=Association
-    #         )
-    #         dic = json.loads(chat_response.choices[0].message.content)
-    #         list_dic.append(dic)
-    #     return list_dic
+                if os.path.isfile(file_path):
+                    with open(file_path,'r',encoding='utf-8') as f:
+                        text = f.read()
+
+                # 
+
+                ## delete the last record
+                if file in list_text_names:
+                    print(f" Restudy {file} (processed earlier)")
+                    self.df.drop( self.df[self.df['text_name']==file].index ,inplace= True)
+        
+
+                else : 
+                    try :
+                        text_hash = self.compute_hash(text)
+                        prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
+                            f"\\\n file name : {file}"\
+                            +f"\n\n le texte à étudier: \n\n"\
+                            + text + f"\n_n fin du texte"
+                        
+                        print(text[:10])
+
+                        client = Mistral(api_key=api_key)
+
+                        chat_response = client.chat.parse(
+                            model=model,
+                            temperature = 0,
+                            messages=[
+                                {
+                                    "role": "system", 
+                                    "content": prompt
+                                },
+                                # {
+                                #     "role": "user", 
+                                #     "content": text
+                                # },
+                            ],
+                            response_format=Entity
+                        )
+                        dic = json.loads(chat_response.choices[0].message.content)
+                        pickle.dump(dic,open('dic.p','wb'))
+                        self.df.loc[len(self.df)] = dic
+                        self.save_results()
+
+                    except Exception as e:
+                        print(f"Error processing {file}: {e}")
+            else :
+                continue
+    
+    @staticmethod
+    def get_chunks( 
+        text: str
+        )-> List[str]:
+        '''
+        Objective : Split the text in paragraphs.
+        '''
+

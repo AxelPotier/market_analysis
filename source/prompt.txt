@@ -1,3 +1,7 @@
+Contexte:
+Tu es un analyseur de marché pour une association qui étudit un texte.
+
+Intructions:
 Veuillez fournir les informations nécessaires pour remplir le modèle de données d'une entité (association). Les informations requises incluent : \
     1. Nom de l'association \
     2. Objectifs (liste de chaînes de caractères)\
@@ -8,5 +12,7 @@ Veuillez fournir les informations nécessaires pour remplir le modèle de donné
     7. Communication (objet avec les champs "facebook_likes", "facebook_follower", "instagram_publication", et "instagram_followers")
 
     Si il n'y a pas de prix ou que les followers, publication et likes ne sont pas renseigner alors ajouter None.
-
+   
+    Si le texte est vide, remplis les champs avec None.
+     
     Assurez-vous de fournir toutes les informations dans le format JSON suivant :
