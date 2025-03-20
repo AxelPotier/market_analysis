@@ -7,6 +7,7 @@ import pandas as pd
 import pickle
 import hashlib
 from columns_definition import Entity
+from langchain.text_splitter import CharacterTextSplitter
 
 
 
@@ -85,30 +86,10 @@ class StudyText:
                 continue
             
             try :
-                prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
-                    f"\\\n file name : {file}"\
-                    +f"\n\n le texte à étudier: \n\n"\
-                    + text + f"\n_n fin du texte"
-                
-                print(text[:10])
-
-                client = Mistral(api_key=api_key)
-                
-                chat_response = client.chat.parse(
-                    model=model,
-                    messages=[
-                        {
-                            "role": "system", 
-                            "content": prompt
-                        },
-                        # {
-                        #     "role": "user", 
-                        #     "content": text
-                        # },
-                    ],
-                    response_format=Entity
-                )
-                dic = json.loads(chat_response.choices[0].message.content)
+                if len(text)<10**5:
+                    dic = self.study_text_with_mistral(text, text_hash, file)
+                else :
+                    dic = self.study_long_text(text, text_hash, file)
                 pickle.dump(dic,open('dic.p','wb'))
                 self.df.loc[len(self.df)] = dic
                 self.save_results()
@@ -130,6 +111,8 @@ class StudyText:
         '''
         api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
         model = "mistral-large-latest"
+
+
         prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
                     f"\\\n file name : {file_name}"\
                     +f"\n\n le texte à étudier: \n\n"\
@@ -155,11 +138,49 @@ class StudyText:
         )
         dic = json.loads(chat_response.choices[0].message.content)
         return dic
+    
+    def study_long_text(
+        self,
+        text: str,
+        text_hash:str,
+        file_name:str
+        )->dict:
+        '''
+        Objective : this function chunks a long text and applies the study function
+            on each chunk and combine the results.
+        
+        Params : text : text to analyse.
+                 text_hash : hash of the full text.
+                 file_name : name of the file.   
+        '''
+        
+        ## Chunking the text
+        text_splitter = CharacterTextSplitter(
+            separator = ".",
+            chunk_size = 30000,
+            chunk_overlap  = 100
+        )
+        docs = text_splitter.create_documents([text])
+
+        ## Study each chunk.
+        list_dic = []
+        for doc in docs:
+            text = doc.page_content
+            list_dic.append(self.study_text_with_mistral(text, text_hash, file_name))
+        
+        ##format a text composed of the dictionnaries.
+        formatted_text = "".join([str(dic) for dic in list_dic])
+        ## run the llm on the formatted text keepin the hash from the full text
+        dic = self.study_text_with_mistral(formatted_text, text_hash, file_name)
+
+        return dic
 
     # @staticmethod
     def augment_data_frame_with_other_informations(self,df_new_informations, left_on, right_on):
         '''
         Obective : introduce the new data frame in the attribute dataframe.
+        
+        params : 
         '''
         df_new_informations = self.df.merge(df_new_informations, left_on = 'text_name',
                                             right_on=right_on, how = 'left') 
@@ -196,8 +217,6 @@ class StudyText:
                     with open(file_path,'r',encoding='utf-8') as f:
                         text = f.read()
 
-                # 
-
                 ## delete the last record
                 if file in list_text_names:
                     print(f" Restudy {file} (processed earlier)")
@@ -207,31 +226,11 @@ class StudyText:
                 else : 
                     try :
                         text_hash = self.compute_hash(text)
-                        prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
-                            f"\\\n file name : {file}"\
-                            +f"\n\n le texte à étudier: \n\n"\
-                            + text + f"\n_n fin du texte"
-                        
-                        print(text[:10])
+                        if len(text) < 10**5:
+                            dic = self.study_text_with_mistral(text, text_hash, file)
+                        else :
+                            dic = self.study_long_text(text, text_hash, file)
 
-                        client = Mistral(api_key=api_key)
-
-                        chat_response = client.chat.parse(
-                            model=model,
-                            temperature = 0,
-                            messages=[
-                                {
-                                    "role": "system", 
-                                    "content": prompt
-                                },
-                                # {
-                                #     "role": "user", 
-                                #     "content": text
-                                # },
-                            ],
-                            response_format=Entity
-                        )
-                        dic = json.loads(chat_response.choices[0].message.content)
                         pickle.dump(dic,open('dic.p','wb'))
                         self.df.loc[len(self.df)] = dic
                         self.save_results()
@@ -241,11 +240,4 @@ class StudyText:
             else :
                 continue
     
-    @staticmethod
-    def get_chunks( 
-        text: str
-        )-> List[str]:
-        '''
-        Objective : Split the text in paragraphs.
-        '''
 
