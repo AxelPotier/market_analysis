@@ -13,64 +13,67 @@ from urllib.parse import urlparse
 # # URL de base
 # url_base = 'https://www.artpointm.com/'
 
-# Fonction pour extraire le texte d'une page donnée
-def get_text(
-        url: str
-        )-> None:
+def get_text(url: str) -> None:
+    """
+    Extracts text content from a given URL.
+
+    :param url: The URL of the webpage to extract text from.
+    :return: The extracted text content or None if an error occurs.
+    """
     try:
         response = requests.get(url)
         response.encoding = 'utf-8'
-        response.raise_for_status()  # Vérifie si la requête a réussi
+        response.raise_for_status()  # Check if the request was successful
         soup = BeautifulSoup(response.text, "html.parser")
-        # Supprimer les scripts et styles avant d'extraire le texte
+        # Remove scripts and styles before extracting text
         for script in soup(["script", "style"]):
             script.decompose()
         return soup.get_text()
     except Exception as e:
-        print(f"Erreur avec l'URL {url}: {e}")
+        print(f"Error with URL {url}: {e}")
         return None
 
-# Fonction pour trouver tous les liens internes
-def get_internal_links(url_base):
+def get_internal_links(url_base: str) -> set:
+    """
+    Finds all internal links on a given base URL.
+
+    :param url_base: The base URL to find internal links from.
+    :return: A set of internal links.
+    """
     try:
         response = requests.get(url_base)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-        liens = set()
+        links = set()
         for a_tag in soup.find_all("a", href=True):
-            lien = a_tag['href']
-            # Combiner avec l'URL de base pour obtenir un lien absolu
-            lien_complet = urljoin(url_base, lien)
-            if lien_complet.startswith(url_base):  # Ne prendre que les liens internes
-                liens.add(lien_complet)
-        return liens
+            link = a_tag['href']
+            # Combine with the base URL to get an absolute link
+            full_link = urljoin(url_base, link)
+            if full_link.startswith(url_base):  # Only take internal links
+                links.add(full_link)
+        return links
     except Exception as e:
-        print(f"Erreur avec l'URL de base {url_base}: {e}")
+        print(f"Error with base URL {url_base}: {e}")
         return set()
 
-
-def save_dict_to_text_files(data_dict, output_folder, base_url):
+def save_dict_to_text_files(data_dict: dict, output_folder: str, base_url: str) -> None:
     """
     Save the contents of a dictionary into multiple text files.
 
-    Args:
-        data_dict (dict): A dictionary where the keys are filenames
-        and values are the file contents.
-        
-        output_folder (str): Path to the folder where files will be saved.
-
-    Returns:
-        None
+    :param data_dict: A dictionary where the keys are URLs and values are the file contents.
+    :param output_folder: Path to the folder where files will be saved.
+    :param base_url: The base URL used to generate filenames.
+    :return: None
     """
     # Create the folder if it doesn't exist
     os.makedirs(output_folder, exist_ok=True)
 
-    # pattern for naming the files based on the url.
+    # Pattern for naming the files based on the URL
     pattern = r"{}\/(.*)".format(re.escape(base_url))
 
     # Iterate through the dictionary and save each value to a file
     for url, content in data_dict.items():
-        file_name = re.search(pattern, url).group(1).replace('/','_')
+        file_name = re.search(pattern, url).group(1).replace('/', '_')
         # Ensure the file has a .txt extension
         if not file_name.endswith(".txt"):
             file_name += ".txt"
@@ -82,26 +85,24 @@ def save_dict_to_text_files(data_dict, output_folder, base_url):
             file.write(content)
     print(f"All files have been saved in {output_folder}")
 
-
-def anonymize_text(text):
+def anonymize_text(text: str) -> str:
     """
     Anonymize sensitive information in a text, such as emails, phone 
-        numbers, credit card numbers, and personal identifiers.
-    Args:
-        text (str): The input text to anonymize.
+    numbers, credit card numbers, and personal identifiers.
 
-    Returns:
-        str: The anonymized text.
+    :param text: The input text to anonymize.
+    :return: The anonymized text.
     """
     # Mask email addresses
     text = re.sub(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', '[EMAIL REDACTED]', text)
 
     # Mask phone numbers
     text = re.sub(r'\b\d{10,}\b', '[PHONE NUMBER REDACTED]', text)  # Numbers with 10 or more digits
-    text = re.sub(r'\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}', \
-                  '[PHONE NUMBER REDACTED]', text)
+    text = re.sub(r'\+?\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}', '[PHONE NUMBER REDACTED]', text)
+    
     # Mask credit card numbers
     text = re.sub(r'\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b', '[CREDIT CARD REDACTED]', text)
+    
     # Mask dates (standard formats like DD/MM/YYYY or YYYY-MM-DD)
     text = re.sub(r'\b\d{1,2}[-/]\d{1,2}[-/]\d{2,4}\b', '[DATE REDACTED]', text)
     text = re.sub(r'\b\d{4}[-/]\d{2}[-/]\d{2}\b', '[DATE REDACTED]', text)
@@ -111,72 +112,65 @@ def anonymize_text(text):
 
     return text
 
+def url_to_filename(url: str) -> str:
+    """
+    Converts a URL to a valid filename.
 
-
-
-def url_to_filename(url):
-    # Analyser l'URL
+    :param url: The URL to convert.
+    :return: A valid filename derived from the URL.
+    """
+    # Parse the URL
     parsed_url = urlparse(url)
 
-    # Supprimer le schéma et le domaine
+    # Remove the scheme and domain
     path = parsed_url.path
 
-    # Remplacer les caractères non valides
+    # Replace invalid characters
     filename = re.sub(r'[^a-zA-Z0-9_-]', '_', path.strip('/'))
 
-    # Limiter la longueur du nom de fichier (par exemple, 50 caractères)
+    # Limit the length of the filename (e.g., 50 characters)
     filename = filename[:50]
 
     return filename
 
+def get_text_from_urls(list_tuple_filename_url: List[tuple], folder_name: str, gen_filename: bool) -> None:
+    """
+    Retrieves all the text of the website for each URL.
 
-def get_text_from_urls(
-        list_tuple_filename_url : List[tuple],
-        folder_name : str,
-        gen_filename :bool
-        )-> None:
-    '''
-    Objective: retrieves all the text of the website for each url.
-
-    Params : list_tuple_url_filename : is a list of tuple
-            (filename,url).
-            folder_name : is the name of the directory where
-            the texts are saved.
-            gen_filename : Generates a filename based on the url if chosen.
-    '''
+    :param list_tuple_filename_url: A list of tuples (filename, url).
+    :param folder_name: The name of the directory where the texts are saved.
+    :param gen_filename: Generates a filename based on the URL if chosen.
+    :return: None
+    """
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
-        print(f"Le dossier '{folder_name}' a été créé.")
+        print(f"The folder '{folder_name}' has been created.")
     else:
-        print(f"Le dossier '{folder_name}' existe déjà.")
+        print(f"The folder '{folder_name}' already exists.")
 
-    for file_name,url_base in list_tuple_filename_url:
-        # Étape 1 : Trouver tous les liens internes
-        liens = get_internal_links(url_base)
-        print(f"Liens trouvés : {len(liens)}")
+    for file_name, url_base in list_tuple_filename_url:
+        # Step 1: Find all internal links
+        links = get_internal_links(url_base)
+        print(f"Links found: {len(links)}")
 
-        # Étape 2 : Extraire le texte de chaque page
-        resultats = {}
-        for lien in liens:
-            print(f"Extraction du texte de : {lien}")
-            texte = get_text(lien)
-            if texte:
-                resultats[lien] = texte
+        # Step 2: Extract the text from each page
+        results = {}
+        for link in links:
+            print(f"Extracting text from: {link}")
+            text = get_text(link)
+            if text:
+                results[link] = text
 
-        ## Etape 3 : clean dictionnary
+        # Step 3: Clean dictionary
         dic = {}
-        for key, item in resultats.items():
+        for key, item in results.items():
             print(key)
             dic[key] = " ".join(item.split())
 
+        # Step 4: Concatenate the texts
+        text = "".join([item for key, item in dic.items()])
 
-        ## Etape 4 : concatenate the texts
-        text = "".join([ item for key, item in dic.items() ])
-        
-        ## Etape 5 : Save the results.
-        # file_name = url_to_filename(url_base)
-
-        ## generation of the name based on the url.
+        # Step 5: Save the results
         if gen_filename:
             file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
 
@@ -187,55 +181,43 @@ def get_text_from_urls(
     
     return None
 
+def get_text_from_url(url_base: str, file_name: str, folder_name: str) -> None:
+    """
+    Retrieves all the text of the website for a given URL.
 
-
-
-def get_text_from_url(
-        url_base :str,
-        file_name:str,
-        folder_name : str
-        )-> None:
-    '''
-    Objective: retrieves all the text of the website for each url.
-
-    Params : list_tuple_url_filename : is a list of tuple
-            (filename,url).
-            folder_name : is the name of the directory where
-            the texts are saved.
-            gen_filename : Generates a filename based on the url if chosen.
-    '''
+    :param url_base: The base URL to retrieve text from.
+    :param file_name: The name of the file to save the text.
+    :param folder_name: The name of the directory where the texts are saved.
+    :return: None
+    """
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
-        print(f"Le dossier '{folder_name}' a été créé.")
+        print(f"The folder '{folder_name}' has been created.")
     else:
-        print(f"Le dossier '{folder_name}' existe déjà.")
+        print(f"The folder '{folder_name}' already exists.")
 
-    # Étape 1 : Trouver tous les liens internes
-    liens = get_internal_links(url_base)
-    print(f"Liens trouvés : {len(liens)}")
+    # Step 1: Find all internal links
+    links = get_internal_links(url_base)
+    print(f"Links found: {len(links)}")
 
-    # Étape 2 : Extraire le texte de chaque page
-    resultats = {}
-    for lien in liens:
-        print(f"Extraction du texte de : {lien}")
-        texte = get_text(lien)
-        if texte:
-            resultats[lien] = texte
+    # Step 2: Extract the text from each page
+    results = {}
+    for link in links:
+        print(f"Extracting text from: {link}")
+        text = get_text(link)
+        if text:
+            results[link] = text
 
-    ## Etape 3 : clean dictionnary
+    # Step 3: Clean dictionary
     dic = {}
-    for key, item in resultats.items():
+    for key, item in results.items():
         print(key)
         dic[key] = " ".join(item.split())
 
+    # Step 4: Concatenate the texts
+    text = "".join([item for key, item in dic.items()])
 
-    ## Etape 4 : concatenate the texts
-    text = "".join([ item for key, item in dic.items() ])
-    
-    ## Etape 5 : Save the results.
-    # file_name = url_to_filename(url_base)
-
-    ## generation of the name based on the url.
+    # Step 5: Save the results
     if file_name is None:
         file_name = re.sub(r'[^a-zA-Z0-9_-]', '_', url_base.strip('/'))
 
@@ -246,99 +228,91 @@ def get_text_from_url(
     
     return None
 
+def get_texts_from_list_dic(list_dic: List[dict], folder_name: str) -> None:
+    """
+    Retrieve the texts based on a dictionary with keys: filename and URL.
 
-def get_texts_from_list_dic(
-        list_dic : List[dict],
-        folder_name:str
-    )-> None:
-    '''
-    Objective : Retrieve the texts based on a dictionary with keys: 
-    filename and url.
-
-    Parameters:
-        list_dic: the list of dictionnaries with the urls and filename 
-        to save.
-        folder_name: the name of the folder for saving the texts.    
-    '''
+    :param list_dic: The list of dictionaries with the URLs and filenames to save.
+    :param folder_name: The name of the folder for saving the texts.
+    :return: None
+    """
     for dic in list_dic:
-        get_text_from_url(dic['url'],dic['file_name'], folder_name)
+        get_text_from_url(dic['url'], dic['file_name'], folder_name)
     return None
-
-
 
 ## --------------------------------------------------------------------
 ## Scrapping functions specific for "https://music-hdf.org/annuaire?tt"
 ##---------------------------------------------------------------------
 
-def scrap_hdf_music():
-    '''
-    Objective : Scraps and retrieve relevants informations from hdf_music.
-    '''
+def scrap_hdf_music() -> List[dict]:
+    """
+    Scraps and retrieves relevant information from hdf_music.
 
-    ## url_hdf
+    :return: A list of dictionaries with the scraped information.
+    """
+    # URL of the directory
     url_annuaire = "https://music-hdf.org/annuaire?tt"
     base_url = "https://music-hdf.org"
     response = requests.get(url_annuaire)
     response.encoding = 'utf-8'
     soup = BeautifulSoup(response.text, "html.parser")
 
-    ## Get target html paragraph
-    liens = soup.find_all("a", class_="structure-liste")
-    dic={}
+    # Get target HTML paragraph
+    links = soup.find_all("a", class_="structure-liste")
+    dic = {}
 
-    ## get the url and informations
+    # Get the URL and information
     list_dic_prod_live_entities = [
-        (dic := get_dic_from_summary(lien.text.strip())).update({"url_suffix": lien.get("href")}) or dic
-        for lien in liens if "Prod live : Organisateur" in lien.text.strip() ## !!Only the organizer of
-        ]
+        (dic := get_dic_from_summary(link.text.strip())).update({"url_suffix": link.get("href")}) or dic
+        for link in links if "Prod live : Organisateur" in link.text.strip()  # Only the organizer
+    ]
     
     for dic in list_dic_prod_live_entities:
-        url_summary="".join([base_url,'/',dic['url_suffix']])
+        url_summary = "".join([base_url, '/', dic['url_suffix']])
         response_temp = requests.get(url_summary)
         response_temp.encoding = 'utf-8'
         soup_temp = BeautifulSoup(response_temp.text, "html.parser")
-        try :
+        try:
             url_entity = soup_temp.find_all("a", class_='inline-link')[0].get('href')
         except:
             url_entity = None
         try:
             description = soup_temp.find("div", class_="col-5").get_text(strip=True)
         except:
-            description=None
+            description = None
 
-        dic.update({'description': description, "url":url_entity})
+        dic.update({'description': description, "url": url_entity})
 
     return list_dic_prod_live_entities
-    
 
-def get_dic_from_summary(text):
-    '''
-    Objective : function that retrieves the summaries about the
-    entities in the directory of hdf.
+def get_dic_from_summary(text: str) -> dict:
+    """
+    Retrieves the summaries about the entities in the directory of hdf.
 
-    Parameters : text is a summary of the entity. 
-    '''
-    # Nettoyage du texte en supprimant les caractères inutiles
+    :param text: A summary of the entity.
+    :return: A dictionary with the extracted information.
+    """
+    # Clean the text by removing unnecessary characters
     text = text.replace("\xa0", " ").strip()
     
-    # Extraction du nom (premier élément avant le statut)
-    match_nom = re.match(r"^(.*?)\s+\n", text)
-    nom = match_nom.group(1).strip() if match_nom else ""
+    # Extract the name (first element before the status)
+    match_name = re.match(r"^(.*?)\s+\n", text)
+    name = match_name.group(1).strip() if match_name else ""
 
-    # Extraction du statut (mot entre le nom et 'à Lieu')
-    match_statut = re.search(r"\n\s*(.*?)\s*\n\s*à", text)
-    statut = match_statut.group(1).strip() if match_statut else ""
+    # Extract the status (word between the name and 'à Lieu')
+    match_status = re.search(r"\n\s*(.*?)\s*\n\s*à", text)
+    status = match_status.group(1).strip() if match_status else ""
 
-    # Extraction du lieu (après 'à' et avant les fonctions)
-    match_lieu = re.search(r"à\s*([^\n]+)", text)
-    lieu = match_lieu.group(1).strip() if match_lieu else ""
+    # Extract the location (after 'à' and before the functions)
+    match_location = re.search(r"à\s*([^\n]+)", text)
+    location = match_location.group(1).strip() if match_location else ""
 
-    # Extraction des fonctions (tout ce qui suit)
-    fonctions = re.findall(r"×\s*(.*?)\s*(?:\n|$)", text)
-    fonctions_str = ", ".join(fonctions)
+    # Extract the functions (everything that follows)
+    functions = re.findall(r"×\s*(.*?)\s*(?:\n|$)", text)
+    functions_str = ", ".join(functions)
 
-    # Ajouter les données extraites à la liste
-    dic = { 'name': nom, 'status' : statut, 'localisation': lieu, 'functions' : fonctions_str } 
+    # Add the extracted data to the dictionary
+    dic = {'name': name, 'status': status, 'localisation': location, 'functions': functions_str}
 
     return dic
 
