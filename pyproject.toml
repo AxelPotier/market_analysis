@@ -1,0 +1,24 @@
+[project]
+name = "market-analysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bs4>=0.0.2",
+    "langchain>=0.3.21",
+    "mistralai>=1.6.0",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "pathlib>=1.0.1",
+    "requests>=2.32.3",
+    "seaborn>=0.13.2",
+    "typing>=3.10.0.0",
+]
+
+# [build-system]
+# requires = ["uv"]
+# build-backend = "uv.pip_backend"
+
+# [tool.uv]
+# resolver = "pip"
