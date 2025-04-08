@@ -249,6 +249,7 @@ def scrap_hdf_music() -> List[dict]:
     Scraps and retrieves relevant information from hdf_music.
 
     :return: A list of dictionaries with the scraped information.
+        with keys : name, status, localisation, functions, url_suffix, description,url,website_type,file_name 
     """
     # URL of the directory
     url_annuaire = "https://music-hdf.org/annuaire?tt"
@@ -282,6 +283,8 @@ def scrap_hdf_music() -> List[dict]:
             description = None
 
         dic.update({'description': description, "url": url_entity})
+    # TODO: Tester ce bloc - ajout du type de site internet.
+    [ dic.update({'website_type': get_website_type(dic['url'])}) if is_valid_url(dic['url']) else dic.update({'website_type': None}) for dic in list_dic_prod_live_entities]
 
     return list_dic_prod_live_entities
 
@@ -312,7 +315,40 @@ def get_dic_from_summary(text: str) -> dict:
     functions_str = ", ".join(functions)
 
     # Add the extracted data to the dictionary
-    dic = {'name': name, 'status': status, 'localisation': location, 'functions': functions_str}
+    dic = {'name': name, 'status': status, 
+           'localisation': location, 'functions': functions_str,
+           # TODO: Tester ce bloc - ajout du traitement des erreurs réseau
+           'file_name': sanitize_filename(dic['name']) } 
 
     return dic
 
+def sanitize_filename(filename, max_length=255):
+    # Définition des caractères interdits (Windows + Linux)
+    forbidden_chars = r'[\/:*?"<>|]'  
+    # Remplace les caractères interdits par "_"
+    sanitized = re.sub(forbidden_chars, "_", filename)
+    # Remplace les espaces multiples par un seul underscore
+    sanitized = re.sub(r'\s+', '_', sanitized).strip('_')
+    # Tronque si dépasse la longueur max (255 en général)
+    return sanitized[:max_length]
+    
+
+
+def get_website_type(url):
+    # Dictionnaire de classification des sites
+    SITE_CATEGORIES = {
+        "facebook.com": "Facebook",
+        "instagram.com": "Instagram",
+        "twitter.com": "Twitter",
+        "linkedin.com": "LinkedIn",
+        "youtube.com": "YouTube",
+        "tiktok.com": "TikTok",
+        "soundcloud.com": "SoundCloud",
+        "bandcamp.com": "Bandcamp"
+    }
+    parsed_url = urlparse(url)
+    domain = parsed_url.netloc.replace("www.", "")  # Supprime "www." si présent
+    return SITE_CATEGORIES.get(domain, "Site personnel")  # Si inconnu, classé en "Site personnel"
+
+def is_valid_url(url):
+    return validators.url(url)  # Retourne True si valide, sinon False

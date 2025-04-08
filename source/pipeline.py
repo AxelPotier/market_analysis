@@ -47,15 +47,18 @@ class PipeLine:
                 df = pd.concat([df,st.df])
             else :
                 df = st.df
+                print(st.df.columns)
             logger.info(f'Study of {dic["folder_path"]} completed')
             
+        
+        df_augmented_data = pd.DataFrame(pickle.load(open(list_dic_scrap_directory_path,'rb')) )
 
-        df_augmented_data = pickle.load(open(list_dic_scrap_directory_path,'rb'))
         list_col = [col for col in df.columns if col \
                                not in df_augmented_data.columns or col == 'file_name']
+
         self.df = df_augmented_data.merge(df[list_col],on='file_name', how='left')
         
-        pickle.dump(self.df,open('df_test.p'))
+        pickle.dump(self.df,open('df_test.p','wb'))
 
         # Transform the dataset
 
