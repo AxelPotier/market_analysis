@@ -6,7 +6,11 @@ import json
 import pandas as pd
 import pickle
 import hashlib
-from columns_definition import Entity
+
+## the output format to be used
+# ---------------------------
+from columns_definition_new import Entity 
+# ----------------------------
 from langchain.text_splitter import CharacterTextSplitter
 
 def read_files_from_folder(folder: str) -> dict:
