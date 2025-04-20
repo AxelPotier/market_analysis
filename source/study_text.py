@@ -6,12 +6,27 @@ import json
 import pandas as pd
 import pickle
 import hashlib
+import logging
 
 ## the output format to be used
 # ---------------------------
 from columns_definition_new import Entity 
 # ----------------------------
 from langchain.text_splitter import CharacterTextSplitter
+
+
+def set_logger():
+    logger = logging.getLogger('__pipeline__')
+    logger_handler = logging.StreamHandler()
+    logger.addHandler(logger_handler)
+    formatter = logging.Formatter("%(asctime)s;%(levelname)s;%(message)s", "%Y-%m-%d %H:%M:%S")
+    logger_handler.setFormatter(formatter)
+    logger.setLevel(20)
+    return logger
+
+logger = set_logger()
+
+
 
 def read_files_from_folder(folder: str) -> dict:
     """
@@ -104,7 +119,8 @@ class StudyText:
             text_hash = self.compute_hash(text)
 
             if text_hash in processed_hashes:
-                print(f"Skipping {file} (already processed)")
+                logger.info(f"Skipping {file} (already processed)")
+                # print(f"Skipping {file} (already processed)")
                 continue
 
             try:
@@ -132,10 +148,11 @@ class StudyText:
         model = "mistral-large-latest"
 
         prompt = self.prompt + f"\\\n hash column : {text_hash}" + \
-                 f"\\\n file name : {file_name}" + \
-                 f"\n\n le texte à étudier: \n\n" + text + f"\n_n fin du texte"
+                        f"\\\n file name : {file_name}" + \
+                        f"\n\n le texte à étudier: \n\n" + text + f"\n_n fin du texte"
 
-        print(text[:10])
+        logger.info(f" head filename: {text[:10]}")
+        # print(text[:10])
 
         client = Mistral(api_key=api_key)
 
@@ -191,24 +208,24 @@ class StudyText:
         :param right_on: Column name in the new DataFrame to merge on.
         :return: The augmented DataFrame.
         """
-        df_new_informations = self.df.merge(df_new_informations, left_on='text_name',
+        df_new_informations = self.df.merge(df_new_informations, left_on='file_name',
                                             right_on=right_on, how='left')
         return df_new_informations
 
-    def restudy_a_list_of_texts(self, list_of_text_names: List[str], folder_path: str) -> None:
+    def restudy_a_list_of_texts(self, list_of_file_names: List[str], folder_path: str) -> None:
         """
         Re-analyzes a list of specified text files.
 
-        :param list_of_text_names: List of filenames to re-analyze.
+        :param list_of_file_names: List of filenames to re-analyze.
         :param folder_path: Path to the folder containing the text files.
         """
         # Settings of Mistral
         api_key = "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
         model = "mistral-large-latest"
-        list_text_names = set(self.df["text_name"])
+        list_file_names = set(self.df["file_name"])
 
         for file in os.listdir(folder_path):
-            if file in list_of_text_names:
+            if file in list_of_file_names:
                 # Retrieving the text
                 file_path = os.path.join(folder_path, file)
 
@@ -217,9 +234,9 @@ class StudyText:
                         text = f.read()
 
                 # Delete the last record
-                if file in list_text_names:
+                if file in list_file_names:
                     print(f" Restudy {file} (processed earlier)")
-                    self.df.drop(self.df[self.df['text_name'] == file].index, inplace=True)
+                    self.df.drop(self.df[self.df['file_name'] == file].index, inplace=True)
 
                 else:
                     try:

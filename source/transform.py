@@ -51,7 +51,7 @@ class SplitComplexColumns:
                     for item in val) for val in sample_values):
                 complex_df = df[[self.id_column, col]].copy().explode(col)
                 complex_dfs[col] = complex_df.dropna( subset=[col for col in complex_df.columns if col != self.id_column],
-                                                     how ='all' )
+                                                     how ='all' ).reset_index(drop = True)
 
             ## si tous les exemples sont des listes de dict
             elif all(isinstance(val,list) and all(isinstance(item,dict) for item in val) \
@@ -60,14 +60,14 @@ class SplitComplexColumns:
                                )
                  complex_df = complex_df.join(pd.json_normalize(complex_df[col] , sep = '_')).drop(col,axis=1)
                  complex_dfs[col] = complex_df.dropna( subset=[col for col in complex_df.columns if col != self.id_column],
-                                                     how ='all' )
+                                                     how ='all' ).reset_index(drop = True)
 
             ## si tous les exemples sont des dictionnaires
             elif all(isinstance(val,dict) for val in sample_values):
                 complex_df = df[[self.id_column, col]].copy()
                 complex_df = complex_df.join(pd.json_normalize(complex_df[col] , sep = '_')).drop(col,axis=1)
                 complex_dfs[col] = complex_df.dropna( subset=[col for col in complex_df.columns if col != self.id_column],
-                                                     how ='all' )
+                                                     how ='all' ).reset_index(drop = True)
 
             elif (col in [ dic['col'] for dic in self.list_dic_col_split_str]  ) :
                 sep = next((d for d in self.list_dic_col_split_str if d.get('col') == col), None)['sep']
@@ -79,12 +79,12 @@ class SplitComplexColumns:
                     .explode(col).reset_index(drop=True)
                 )
                 complex_dfs[col] = complex_df.dropna( subset=[col for col in complex_df.columns if col != self.id_column],
-                                                     how ='all' )
+                                                     how ='all' ).reset_index(drop = True)
 
             else:
                 # Sinon, on crée un DataFrame individuel pour cette colonne
                 complex_df = df[[self.id_column, col]].copy()
-                complex_dfs[col] = complex_df
+                complex_dfs[col] = complex_df.reset_index(drop = True)
 
         df_simple = df[simple_cols].copy()
         return df_simple, complex_dfs
@@ -105,7 +105,7 @@ class TopicExtractor:
         '''
         for df that contains 2 columns including 'id'.
         '''
-        
+
         if len(df.columns)>2:
             raise TooManyColumnsError(f"Le DataFrame contient {df.shape[1]} colonnes, limite = 2.")
         
@@ -118,7 +118,11 @@ class TopicExtractor:
         def uniqueness_ratio(strings):
             return len(set(strings)) / len(strings)
         
+        if not len(samples_values) :
+            return False
+        
         score = uniqueness_ratio(samples_values)
+
         print(f'score {score}')
         if score > 0.9:
             return True
@@ -134,7 +138,7 @@ class TopicExtractor:
         if drop_na:
             df = df.dropna()
         
-        if target_col is None: # assume that there is only one additional column except id.
+        if target_col is None: # assume that there is only one additional column except id_column.
             target_col = [ col for col in df.columns if col != 'id' ][0]
         
         # Exemple de texte
@@ -166,12 +170,13 @@ class TopicExtractor:
         df_result = df[['id']].copy()
         for col in df.columns:
             if col != 'id':
-                df_temp = df[['id',col]].copy()
+                df_temp = df[[col]].copy()
 
                 if (self.is_column_string(df_temp,col)) and (self.contains_heterogenous_str(df_temp) or ('description' in col)):
                     print(df_temp.columns)
                     df_temp = self.extract_topic(df_temp, drop_na= True)
-                df_result = df_result.merge(df_temp,how='left',on='id')
+
+                df_result = df_result.merge(df_temp, left_index=True, right_index=True) #how='left',on='')
         return df_result
     
     @staticmethod
@@ -209,6 +214,7 @@ class Transform:
         for key,df_ in complex_dfs.items():
             topic_extractor = TopicExtractor()
             # if topic_extractor.contains_heterogenous_str(df_):
+            
             df_temp = topic_extractor.extract_topics(df_)
             print(df_temp)
             complex_dfs[key] = df_temp

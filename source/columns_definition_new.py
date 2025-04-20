@@ -44,4 +44,4 @@ class Entity(BaseModel):
     contact: Contact
     communication: Communication
     hash: str
-    text_name:str
+    file_name:str
