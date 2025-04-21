@@ -4,6 +4,7 @@ from bertopic import BERTopic
 from bertopic.representation import KeyBERTInspired
 import nltk
 from nltk.corpus import stopwords
+from mistralai import Mistral
 
 
 
@@ -95,6 +96,9 @@ class TopicExtractor:
     def __init__(self, stop_words_language='french'):
         # Créer un modèle BERTopic
         self.representation_model = KeyBERTInspired()
+        self.api_key= "wm1af0pJ92Pj1tLbTSztHxeey62ru479"
+        self.client_mistral= Mistral(api_key=self.api_key)
+        self.model_mistral = "mistral-large-latest"
 
         #defining stop words
         nltk.download('stopwords')
@@ -128,6 +132,36 @@ class TopicExtractor:
             return True
         else :
             return False
+        
+    # Fonction de mise à jour des noms avec mistral
+    def update_topic_name(self, topic_model : BERTopic):
+        '''
+        Update the label with mistral.
+        
+        '''
+            # Étape 2: Extrais les top words de chaque topic
+        topic_info = topic_model.get_topic_info()
+        topic_names = {}
+
+        for topic_id in topic_info.Topic:
+            if topic_id == -1:
+                continue  # Ignore les "outliers"
+            words = [word for word, _ in topic_model.get_topic(topic_id)]
+            prompt = f"Voici des mots clés pour un sujet : {', '.join(words)}. Donne un nom court et pertinent pour ce sujet."
+            
+            response = self.client_mistral.chat.complete(
+                model=self.model_mistral,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
+            generated_name = response.choices[0].message.content.strip()
+            topic_names[topic_id] = generated_name
+
+        # Étape 3: Remplacer les noms de topics
+        for topic_id, name in topic_names.items():
+            topic_model.set_topic_labels({topic_id: name})
+
+        return topic_model
 
             
 
@@ -152,6 +186,7 @@ class TopicExtractor:
         topic_model = BERTopic(representation_model = self.representation_model )
         # Extraire les topics
         topics, probs = topic_model.fit_transform( resultats )
+        topic_model = self.update_topic_name(topic_model)
 
         # Ajouter les catégories au dataframe
         df[target_col+'_topic'] = topics
