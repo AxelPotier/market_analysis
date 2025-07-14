@@ -29,10 +29,8 @@ dic_df = {'objectifs': { 'arg1' : 'objectives', 'arg2':  'objectives_topic_label
 # st.write("arg2:", arg2)
 # st.write("arg3:", arg3)
 
-df_simple = pickle.load(open('df_simple.p','rb'))
-complex_dfs = pickle.load(open('complex_dfs.p','rb'))
-
-
+df_simple = pickle.load(open('./tests/experiment_v1/df_simple.p','rb'))
+complex_dfs = pickle.load(open('./tests/experiment_v1/complex_dfs.p','rb'))
 
 ## Choose from 
 # --- SELECTION ---
