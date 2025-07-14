@@ -1,4 +1,11 @@
 streamlit
+pandas
+numpy
+matplotlib
+seaborn
 plotly
 wordcloud
-matplotlib
+bs4
+requests
+langchain
+mistralai
