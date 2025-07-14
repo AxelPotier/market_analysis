@@ -221,7 +221,7 @@ class TopicExtractor:
 
 class Transform:
 
-    def __init__(self, list_dic_col_split_str = [] ):
+    def __init__(self, lisst_dic_col_split_str = [] ):
         self.id_column ='id'
         self.list_dic_col_split_str = list_dic_col_split_str
     
@@ -250,7 +250,7 @@ class Transform:
             topic_extractor = TopicExtractor()
             # if topic_extractor.contains_heterogenous_str(df_):
             
-            df_temp = topic_extractor.extract_topics(df_)
+&            df_temp = topic_extractor.extract_topics(df_)
             print(df_temp)
             complex_dfs[key] = df_temp
 
