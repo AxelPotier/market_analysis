@@ -1,4 +1,4 @@
-*.p
+# *.p
 *.csv
 tests/webscrapped_texts
 tests/textes

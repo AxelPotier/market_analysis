@@ -185,16 +185,19 @@ class TopicExtractor:
         # Créer un modèle BERTopic
         topic_model = BERTopic(representation_model = self.representation_model )
         # Extraire les topics
-        topics, probs = topic_model.fit_transform( resultats )
-        topic_model = self.update_topic_name(topic_model)
+        try :
+            topics, probs = topic_model.fit_transform( resultats )
+            topic_model = self.update_topic_name(topic_model)
 
-        # Ajouter les catégories au dataframe
-        df[target_col+'_topic'] = topics
-        df = df.merge(topic_model.get_topic_info().rename(columns={'Name':target_col+'_topic_label','Representation': target_col+'_topic_representation',
-                                                                   'Representative_Docs': target_col + '_Representative_Docs' }),
-                                                        right_on = 'Topic',
-                                                        left_on = target_col +'_topic', how = 'left').drop(columns = ['Topic'])
-        return df
+            # Ajouter les catégories au dataframe
+            df[target_col+'_topic'] = topics
+            df = df.merge(topic_model.get_topic_info().rename(columns={'Name':target_col+'_topic_label','Representation': target_col+'_topic_representation',
+                                                                    'Representative_Docs': target_col + '_Representative_Docs' }),
+                                                            right_on = 'Topic',
+                                                            left_on = target_col +'_topic', how = 'left').drop(columns = ['Topic'])
+            return df
+        except ValueError as e:
+            return df
     
 
     def extract_topics( self, df ):
@@ -221,7 +224,7 @@ class TopicExtractor:
 
 class Transform:
 
-    def __init__(self, lisst_dic_col_split_str = [] ):
+    def __init__(self, list_dic_col_split_str = [] ):
         self.id_column ='id'
         self.list_dic_col_split_str = list_dic_col_split_str
     
@@ -250,7 +253,7 @@ class Transform:
             topic_extractor = TopicExtractor()
             # if topic_extractor.contains_heterogenous_str(df_):
             
-&            df_temp = topic_extractor.extract_topics(df_)
+            df_temp = topic_extractor.extract_topics(df_)
             print(df_temp)
             complex_dfs[key] = df_temp
 
