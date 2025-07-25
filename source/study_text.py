@@ -10,7 +10,7 @@ import logging
 
 ## the output format to be used
 # ---------------------------
-from columns_definition_new import Entity 
+from columns_definition import ConcertOrganizerGraph 
 # ----------------------------
 from langchain.text_splitter import CharacterTextSplitter
 
@@ -82,7 +82,7 @@ class StudyText:
         if os.path.exists(self.cache_file):
             self.df = pickle.load(open(self.cache_file, 'rb'))
         else:
-            self.df = pd.DataFrame(columns=Entity.model_fields.keys())
+            self.df = pd.DataFrame(columns=ConcertOrganizerGraph.model_fields.keys())
         return None
 
     def save_results(self) -> None:
@@ -164,7 +164,7 @@ class StudyText:
                     "content": prompt
                 },
             ],
-            response_format=Entity
+            response_format=ConcertOrganizerGraph
         )
         dic = json.loads(chat_response.choices[0].message.content)
         return dic
