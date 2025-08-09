@@ -10,7 +10,7 @@ import logging
 
 ## the output format to be used
 # ---------------------------
-from columns_definition import ConcertOrganizerGraph 
+from src.columns_definition import ConcertOrganizerGraph 
 # ----------------------------
 from langchain.text_splitter import CharacterTextSplitter
 

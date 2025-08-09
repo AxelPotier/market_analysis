@@ -3,5 +3,5 @@
     "python.testing.pytestEnabled": true,
     "python.testing.cwd": "${workspaceFolder}\test_pytest",
     "taipyStudio.gUI.elementsFilePaths": [],
-    
+    "python.envFile": "${workspaceFolder}/.env"
 }

@@ -1,10 +1,10 @@
-import study_text
+import src.study_text
 import pandas as pd
 import langchain
 from typing import List
 import pickle
 import logging
-from transform import Transform
+from src.transform import Transform
 
 
 
