@@ -1,10 +1,11 @@
-import src.study_text
+import src.study_text as study_text
 import pandas as pd
 import langchain
 from typing import List
 import pickle
 import logging
 from src.transform import Transform
+from pydantic import BaseModel
 
 
 
@@ -29,7 +30,8 @@ class PipeLine:
     def run_pipeline( self, list_dic_folders : List[dict],
                   path_prompt: str,
                   list_dic_scrap_directory_path: List[dict],
-                  list_dic_col_split_str :List[dict]
+                  list_dic_col_split_str :List[dict],
+                  modelOutput : type[BaseModel]
         )-> None :
         '''
         dic_folders : contains a list of dictionary with a folder_path and 
@@ -43,7 +45,7 @@ class PipeLine:
         for dic in list_dic_folders:
             folder_path = dic['folder_path']
             cache_file = dic['cache_file']
-            st= study_text.StudyText(path_prompt, cache_file )
+            st= study_text.StudyText(path_prompt, modelOutput, cache_file )
             st.analyze_texts_in_folder( folder_path )
             if df is None:
                 df = st.df

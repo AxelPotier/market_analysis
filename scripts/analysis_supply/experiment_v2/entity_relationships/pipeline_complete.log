@@ -1,0 +1,592 @@
+2025-08-24 14:16:34,284 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:18:37,470 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:19:09,488 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:20:04,419 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:20:04,425 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:20:35,443 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:20:50,879 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:20:50,882 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:21:07,271 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 14:21:07,435 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,460 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 14:21:07,488 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,491 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 14:21:07,516 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,519 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 14:21:07,543 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,545 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 14:21:07,569 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,572 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 14:21:07,604 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,606 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 14:21:07,626 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,628 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 14:21:07,648 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,650 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 14:21:07,672 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:21:07,674 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 14:21:27,839 - INFO - Base de donnees videe
+2025-08-24 14:21:27,845 - INFO - 0 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 14:21:27,846 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 14:21:29,189 - INFO - Connexion Neo4j fermee
+2025-08-24 14:21:38,538 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:21:54,611 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:21:54,614 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:22:10,197 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:22:10,387 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:22:10,634 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:22:33,954 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:37:34,111 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-08-24 14:38:46,013 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:40:38,911 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:40:39,529 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:41:04,482 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:41:04,743 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:41:05,089 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 14:41:05,106 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,108 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 14:41:05,114 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,116 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 14:41:05,121 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,123 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 14:41:05,129 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,131 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 14:41:05,136 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,139 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 14:41:05,150 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,152 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 14:41:05,157 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,159 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 14:41:05,165 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,167 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 14:41:05,173 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:41:05,175 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 14:41:05,183 - INFO - 6 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 14:41:05,183 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 14:41:05,184 - INFO - [1/6] Ah_Bon___productions
+2025-08-24 14:41:05,184 - INFO - Traitement du fichier: Ah_Bon___productions
+2025-08-24 14:41:05,184 - INFO -   Insertion de 3 entites...
+2025-08-24 14:41:05,626 - INFO -   Insertion de 1 evenements...
+2025-08-24 14:41:06,023 - INFO -   Insertion de 2 relations...
+2025-08-24 14:41:06,276 - INFO -   Ah_Bon___productions traite avec succes
+2025-08-24 14:41:06,276 - INFO - [2/6] Art_Zoyd_studios
+2025-08-24 14:41:06,277 - INFO - Traitement du fichier: Art_Zoyd_studios
+2025-08-24 14:41:06,277 - INFO -   Insertion de 6 entites...
+2025-08-24 14:41:06,380 - INFO -   Insertion de 0 evenements...
+2025-08-24 14:41:06,380 - INFO -   Insertion de 5 relations...
+2025-08-24 14:41:06,629 - INFO -   Art_Zoyd_studios traite avec succes
+2025-08-24 14:41:06,629 - INFO - [3/6] Attacafa
+2025-08-24 14:41:06,630 - INFO - Traitement du fichier: Attacafa
+2025-08-24 14:41:06,630 - INFO -   Insertion de 11 entites...
+2025-08-24 14:41:06,982 - INFO -   Insertion de 3 evenements...
+2025-08-24 14:41:07,027 - WARNING - Organisateur 550e8400-e29b-41d4-a716-446655440007 non trouvé pour l'événement 03170723-995d-4fd0-9c45-1c98174ae522
+2025-08-24 14:41:07,073 - WARNING - Organisateur 550e8400-e29b-41d4-a716-446655440007 non trouvé pour l'événement 8e48dea5-a0d8-4830-a909-fb49f2dc11ec
+2025-08-24 14:41:07,085 - WARNING - Organisateur 550e8400-e29b-41d4-a716-446655440007 non trouvé pour l'événement 9ffcd570-d2cc-489c-addc-8a9677c8b4b6
+2025-08-24 14:41:07,088 - INFO -   Insertion de 6 relations...
+2025-08-24 14:41:07,284 - WARNING - Relation ignorée - source 550e8400-e29b-41d4-a716-446655440006 non trouvée
+2025-08-24 14:41:07,284 - WARNING - Relation ignorée - source 550e8400-e29b-41d4-a716-446655440007 non trouvée
+2025-08-24 14:41:07,285 - WARNING -   Attacafa traite avec des erreurs
+2025-08-24 14:41:07,285 - INFO - [4/6] A_Gauche_de_la_Lune
+2025-08-24 14:41:07,286 - INFO - Traitement du fichier: A_Gauche_de_la_Lune
+2025-08-24 14:41:07,286 - INFO -   Insertion de 25 entites...
+2025-08-24 14:41:07,758 - INFO -   Insertion de 0 evenements...
+2025-08-24 14:41:07,758 - INFO -   Insertion de 24 relations...
+2025-08-24 14:41:08,038 - INFO -   A_Gauche_de_la_Lune traite avec succes
+2025-08-24 14:41:08,039 - INFO - [5/6] Bougez_Rock
+2025-08-24 14:41:08,039 - INFO - Traitement du fichier: Bougez_Rock
+2025-08-24 14:41:08,039 - INFO -   Insertion de 0 entites...
+2025-08-24 14:41:08,040 - INFO -   Insertion de 0 evenements...
+2025-08-24 14:41:08,040 - INFO -   Insertion de 0 relations...
+2025-08-24 14:41:08,040 - INFO -   Bougez_Rock traite avec succes
+2025-08-24 14:41:08,041 - INFO - [6/6] cleaning_report.json
+2025-08-24 14:41:08,041 - INFO - Traitement du fichier: cleaning_report.json
+2025-08-24 14:41:08,041 - INFO -   Insertion de 5 entites...
+2025-08-24 14:41:08,087 - INFO -   Insertion de 0 evenements...
+2025-08-24 14:41:08,087 - INFO -   Insertion de 4 relations...
+2025-08-24 14:41:08,122 - INFO -   cleaning_report.json traite avec succes
+2025-08-24 14:41:08,306 - ERROR - Erreur calcul statistique sample_entities: 'count'
+2025-08-24 14:41:08,327 - ERROR - Erreur calcul statistique sample_events: 'count'
+2025-08-24 14:41:08,382 - INFO - Connexion Neo4j fermee
+2025-08-24 14:53:58,069 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:54:13,247 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:54:13,249 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:54:57,141 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:55:11,800 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:55:11,802 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:55:43,744 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:55:43,902 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:44,124 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:44,289 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:44,473 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:44,657 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:44,866 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:55:45,030 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 14:56:08,771 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 14:56:08,784 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,785 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 14:56:08,789 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,790 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 14:56:08,793 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,794 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 14:56:08,797 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,798 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 14:56:08,803 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,809 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 14:56:08,820 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,822 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 14:56:08,827 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,828 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 14:56:08,832 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,833 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 14:56:08,837 - INFO - Contrainte/index cree: INDEX
+2025-08-24 14:56:08,838 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 14:56:40,259 - INFO - Base de donnees videe
+2025-08-24 14:56:40,265 - INFO - 1 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 14:56:40,265 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 14:56:40,266 - INFO - [1/1] Ah_Bon___productions
+2025-08-24 14:56:40,266 - INFO - Traitement du fichier: Ah_Bon___productions
+2025-08-24 14:56:40,267 - INFO -   Insertion de 5 entites...
+2025-08-24 14:56:40,267 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 14:56:40,268 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 14:56:40,268 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 14:56:40,268 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 14:56:40,269 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 14:56:40,269 - INFO -   Insertion de 1 evenements...
+2025-08-24 14:56:40,269 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 14:56:40,270 - INFO -   Insertion de 4 relations...
+2025-08-24 14:56:40,270 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 14:56:40,270 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 14:56:40,271 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 14:56:40,271 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 14:56:40,272 - WARNING -   Ah_Bon___productions traite avec des erreurs
+2025-08-24 14:56:40,473 - INFO - Connexion Neo4j fermee
+2025-08-24 14:57:22,435 - INFO - ============================================================
+2025-08-24 14:58:25,604 - WARNING -    • ..\..\..\..\data\data_supply\textes\Ah_Bon___productions: division by zero
+2025-08-24 14:58:25,604 - WARNING -    • ..\..\..\..\data\data_supply\textes\Bougez_Rock: division by zero
+2025-08-24 14:58:26,088 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 14:58:40,774 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 14:58:40,777 - INFO - Polars version 1.11.0 available.
+2025-08-24 14:58:43,539 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 14:59:45,964 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:02:39,189 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:04:00,684 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:05:48,233 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:05:48,896 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:06:15,853 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:07:05,375 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 15:07:05,689 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 15:07:05,708 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,710 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 15:07:05,716 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,718 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 15:07:05,723 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,724 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 15:07:05,729 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,730 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 15:07:05,735 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,736 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 15:07:05,745 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,745 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 15:07:05,750 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,751 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 15:07:05,754 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,755 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 15:07:05,758 - INFO - Contrainte/index cree: INDEX
+2025-08-24 15:07:05,759 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 15:07:09,092 - INFO - Base de donnees videe
+2025-08-24 15:07:09,096 - INFO - 8 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 15:07:09,097 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 15:07:09,097 - INFO - [1/8] Ah_Bon___productions
+2025-08-24 15:07:09,097 - INFO - Traitement du fichier: Ah_Bon___productions
+2025-08-24 15:07:09,098 - INFO -   Insertion de 0 entites...
+2025-08-24 15:07:09,098 - INFO -   Insertion de 0 evenements...
+2025-08-24 15:07:09,099 - INFO -   Insertion de 0 relations...
+2025-08-24 15:07:09,099 - INFO -   Ah_Bon___productions traite avec succes
+2025-08-24 15:07:09,099 - INFO - [2/8] Amikal_sonic
+2025-08-24 15:07:09,100 - INFO - Traitement du fichier: Amikal_sonic
+2025-08-24 15:07:09,101 - INFO -   Insertion de 13 entites...
+2025-08-24 15:07:09,101 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,101 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,102 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,102 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,103 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,103 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,104 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,104 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,104 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,105 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,105 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,106 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,106 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,106 - INFO -   Insertion de 1 evenements...
+2025-08-24 15:07:09,107 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,107 - INFO -   Insertion de 13 relations...
+2025-08-24 15:07:09,108 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,108 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,109 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,109 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,109 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,110 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,110 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,110 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,111 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,111 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,111 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,112 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,112 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,112 - WARNING -   Amikal_sonic traite avec des erreurs
+2025-08-24 15:07:09,113 - INFO - [3/8] Art_Point_M
+2025-08-24 15:07:09,113 - INFO - Traitement du fichier: Art_Point_M
+2025-08-24 15:07:09,113 - INFO -   Insertion de 25 entites...
+2025-08-24 15:07:09,114 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,115 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,115 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,115 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,115 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,116 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,116 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,117 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,117 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,118 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,118 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,118 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,119 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,119 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,120 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,120 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,120 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,121 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,121 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,121 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,121 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,122 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,122 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,122 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,123 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,123 - INFO -   Insertion de 17 evenements...
+2025-08-24 15:07:09,123 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,124 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,125 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,125 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,125 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,126 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,126 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,126 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,126 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,127 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,127 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,127 - INFO -   Insertion de 39 relations...
+2025-08-24 15:07:09,128 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,128 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,128 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,130 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,130 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,130 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,130 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,131 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,131 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,131 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,131 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,132 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,132 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,132 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,133 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,133 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,133 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,134 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,134 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,135 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,135 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,136 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,136 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,137 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,137 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,138 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,138 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,139 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,139 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,139 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,140 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,140 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,140 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,141 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,141 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,141 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,142 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,142 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,142 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,143 - WARNING -   Art_Point_M traite avec des erreurs
+2025-08-24 15:07:09,143 - INFO - [4/8] Art_Zoyd_studios
+2025-08-24 15:07:09,143 - INFO - Traitement du fichier: Art_Zoyd_studios
+2025-08-24 15:07:09,144 - INFO -   Insertion de 5 entites...
+2025-08-24 15:07:09,144 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,144 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,145 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,145 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,145 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,145 - INFO -   Insertion de 12 evenements...
+2025-08-24 15:07:09,146 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,146 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,146 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,146 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,147 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,147 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,147 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,148 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,148 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,148 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,149 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,149 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,150 - INFO -   Insertion de 6 relations...
+2025-08-24 15:07:09,150 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,151 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,151 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,152 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,152 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,153 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,153 - WARNING -   Art_Zoyd_studios traite avec des erreurs
+2025-08-24 15:07:09,154 - INFO - [5/8] A_Gauche_de_la_Lune
+2025-08-24 15:07:09,154 - INFO - Traitement du fichier: A_Gauche_de_la_Lune
+2025-08-24 15:07:09,154 - INFO -   Insertion de 25 entites...
+2025-08-24 15:07:09,155 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,155 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,155 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,155 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,156 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,156 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,156 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,157 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,157 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,157 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,157 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,158 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,158 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,158 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,159 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,159 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,159 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,160 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,160 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,161 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,161 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,161 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,161 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,162 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,162 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,162 - INFO -   Insertion de 0 evenements...
+2025-08-24 15:07:09,162 - INFO -   Insertion de 24 relations...
+2025-08-24 15:07:09,163 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,163 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,163 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,164 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,164 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,164 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,164 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,164 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,165 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,165 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,165 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,166 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,166 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,167 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,167 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,167 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,168 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,168 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,168 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,169 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,169 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,169 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,170 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,170 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,170 - WARNING -   A_Gauche_de_la_Lune traite avec des erreurs
+2025-08-24 15:07:09,171 - INFO - [6/8] Bougez_Rock
+2025-08-24 15:07:09,171 - INFO - Traitement du fichier: Bougez_Rock
+2025-08-24 15:07:09,171 - INFO -   Insertion de 0 entites...
+2025-08-24 15:07:09,172 - INFO -   Insertion de 0 evenements...
+2025-08-24 15:07:09,172 - INFO -   Insertion de 0 relations...
+2025-08-24 15:07:09,172 - INFO -   Bougez_Rock traite avec succes
+2025-08-24 15:07:09,173 - INFO - [7/8] cleaning_report.json
+2025-08-24 15:07:09,173 - INFO - Traitement du fichier: cleaning_report.json
+2025-08-24 15:07:09,173 - INFO -   Insertion de 5 entites...
+2025-08-24 15:07:09,174 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,174 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,174 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,175 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,175 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,175 - INFO -   Insertion de 1 evenements...
+2025-08-24 15:07:09,176 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,176 - INFO -   Insertion de 4 relations...
+2025-08-24 15:07:09,176 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,177 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,177 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,177 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,178 - WARNING -   cleaning_report.json traite avec des erreurs
+2025-08-24 15:07:09,178 - INFO - [8/8] Fungi
+2025-08-24 15:07:09,178 - INFO - Traitement du fichier: Fungi
+2025-08-24 15:07:09,178 - INFO -   Insertion de 7 entites...
+2025-08-24 15:07:09,179 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,179 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,179 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,180 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,180 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,180 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,180 - WARNING - Entité ignorée - ID vide ou invalide
+2025-08-24 15:07:09,181 - INFO -   Insertion de 1 evenements...
+2025-08-24 15:07:09,181 - WARNING - Événement ignoré - ID vide ou invalide
+2025-08-24 15:07:09,181 - INFO -   Insertion de 3 relations...
+2025-08-24 15:07:09,182 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,182 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,182 - WARNING - Relation ignorée - IDs invalides:  -> 
+2025-08-24 15:07:09,183 - WARNING -   Fungi traite avec des erreurs
+2025-08-24 15:07:09,227 - INFO - Connexion Neo4j fermee
+2025-08-24 16:08:04,421 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 16:08:19,569 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 16:08:19,573 - INFO - Polars version 1.11.0 available.
+2025-08-24 16:08:48,583 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:09:48,091 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:11:58,617 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:13:46,890 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:15:18,043 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:15:18,243 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 16:15:18,432 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 16:15:18,622 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 16:15:19,005 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 16:15:20,581 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,582 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 16:15:20,587 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,588 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 16:15:20,591 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,592 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 16:15:20,595 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,596 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 16:15:20,599 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,600 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 16:15:20,608 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,609 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 16:15:20,612 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,613 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 16:15:20,616 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,617 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 16:15:20,622 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:15:20,623 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 16:15:23,697 - INFO - Base de donnees videe
+2025-08-24 16:15:23,703 - INFO - 5 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 16:15:23,703 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 16:15:23,704 - INFO - [1/5] Ah_Bon___productions
+2025-08-24 16:15:23,704 - INFO - Traitement du fichier: Ah_Bon___productions
+2025-08-24 16:15:23,704 - INFO -   Insertion de 5 entites...
+2025-08-24 16:15:23,905 - INFO -   Insertion de 1 evenements...
+2025-08-24 16:15:24,007 - INFO -   Insertion de 4 relations...
+2025-08-24 16:15:24,150 - INFO -   Ah_Bon___productions traite avec succes
+2025-08-24 16:15:24,151 - INFO - [2/5] Amikal_sonic
+2025-08-24 16:15:24,151 - INFO - Traitement du fichier: Amikal_sonic
+2025-08-24 16:15:24,152 - INFO -   Insertion de 13 entites...
+2025-08-24 16:15:24,243 - INFO -   Insertion de 1 evenements...
+2025-08-24 16:15:24,269 - INFO -   Insertion de 13 relations...
+2025-08-24 16:15:24,345 - INFO -   Amikal_sonic traite avec succes
+2025-08-24 16:15:24,345 - INFO - [3/5] Art_Point_M
+2025-08-24 16:15:24,345 - INFO - Traitement du fichier: Art_Point_M
+2025-08-24 16:15:24,346 - INFO -   Insertion de 12 entites...
+2025-08-24 16:15:24,560 - INFO -   Insertion de 8 evenements...
+2025-08-24 16:15:24,748 - INFO -   Insertion de 14 relations...
+2025-08-24 16:15:25,001 - INFO -   Art_Point_M traite avec succes
+2025-08-24 16:15:25,002 - INFO - [4/5] Art_Zoyd_studios
+2025-08-24 16:15:25,002 - INFO - Traitement du fichier: Art_Zoyd_studios
+2025-08-24 16:15:25,002 - INFO -   Insertion de 6 entites...
+2025-08-24 16:15:25,061 - INFO -   Insertion de 12 evenements...
+2025-08-24 16:15:25,165 - INFO -   Insertion de 16 relations...
+2025-08-24 16:15:25,377 - INFO -   Art_Zoyd_studios traite avec succes
+2025-08-24 16:15:25,377 - INFO - [5/5] A_Gauche_de_la_Lune
+2025-08-24 16:15:25,378 - INFO - Traitement du fichier: A_Gauche_de_la_Lune
+2025-08-24 16:15:25,378 - INFO -   Insertion de 18 entites...
+2025-08-24 16:15:25,496 - INFO -   Insertion de 2 evenements...
+2025-08-24 16:15:25,532 - INFO -   Insertion de 13 relations...
+2025-08-24 16:15:25,611 - INFO -   A_Gauche_de_la_Lune traite avec succes
+2025-08-24 16:15:25,673 - ERROR - Erreur calcul statistique sample_entities: 'count'
+2025-08-24 16:15:25,678 - ERROR - Erreur calcul statistique sample_events: 'count'
+2025-08-24 16:15:25,692 - INFO - Connexion Neo4j fermee
+2025-08-24 16:29:55,555 - INFO - NumExpr defaulting to 8 threads.
+2025-08-24 16:30:12,117 - INFO - PyTorch version 2.5.1 available.
+2025-08-24 16:30:12,120 - INFO - Polars version 1.11.0 available.
+2025-08-24 16:30:15,349 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:31:29,953 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:35:32,790 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:37:17,500 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:38:13,588 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:38:13,856 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-08-24 16:38:47,470 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:39:36,797 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-24 16:40:44,140 - INFO - Connexion Neo4j etablie avec succes
+2025-08-24 16:40:44,151 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,152 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON (e.name)` has no effect.} {description: `RANGE INDEX entity_name FOR (e:Entity) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entity_name IF NOT EXISTS FOR (e:Entity) ON e.name'
+2025-08-24 16:40:44,156 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,156 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON (e.type)` has no effect.} {description: `RANGE INDEX entity_type FOR (e:Entity) ON (e.type)` already exists.} {position: None} for query: 'CREATE INDEX entity_type IF NOT EXISTS FOR (e:Entity) ON e.type'
+2025-08-24 16:40:44,159 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,160 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_name IF NOT EXISTS FOR (e:Event) ON (e.name)` has no effect.} {description: `RANGE INDEX event_name FOR (e:Event) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX event_name IF NOT EXISTS FOR (ev:Event) ON ev.name'
+2025-08-24 16:40:44,163 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,164 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX event_date IF NOT EXISTS FOR (e:Event) ON (e.date)` has no effect.} {description: `RANGE INDEX event_date FOR (e:Event) ON (e.date)` already exists.} {position: None} for query: 'CREATE INDEX event_date IF NOT EXISTS FOR (ev:Event) ON ev.date'
+2025-08-24 16:40:44,167 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,168 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX concert_style IF NOT EXISTS FOR (e:Event) ON (e.concert_style)` has no effect.} {description: `RANGE INDEX concert_style FOR (e:Event) ON (e.concert_style)` already exists.} {position: None} for query: 'CREATE INDEX concert_style IF NOT EXISTS FOR (ev:Event) ON ev.concert_style'
+2025-08-24 16:40:44,175 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,176 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX association_name IF NOT EXISTS FOR (e:Association) ON (e.name)` has no effect.} {description: `RANGE INDEX association_name FOR (e:Association) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX association_name IF NOT EXISTS FOR (a:Association) ON a.name'
+2025-08-24 16:40:44,179 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,180 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON (e.name)` has no effect.} {description: `RANGE INDEX entreprise_name FOR (e:Entreprise) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX entreprise_name IF NOT EXISTS FOR (e:Entreprise) ON e.name'
+2025-08-24 16:40:44,183 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,184 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX institution_name IF NOT EXISTS FOR (e:Institution) ON (e.name)` has no effect.} {description: `RANGE INDEX institution_name FOR (e:Institution) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX institution_name IF NOT EXISTS FOR (i:Institution) ON i.name'
+2025-08-24 16:40:44,187 - INFO - Contrainte/index cree: INDEX
+2025-08-24 16:40:44,188 - INFO - Received notification from DBMS server: {severity: INFORMATION} {code: Neo.ClientNotification.Schema.IndexOrConstraintAlreadyExists} {category: SCHEMA} {title: `CREATE RANGE INDEX personne_name IF NOT EXISTS FOR (e:Personne) ON (e.name)` has no effect.} {description: `RANGE INDEX personne_name FOR (e:Personne) ON (e.name)` already exists.} {position: None} for query: 'CREATE INDEX personne_name IF NOT EXISTS FOR (p:Personne) ON p.name'
+2025-08-24 16:40:47,774 - INFO - Base de donnees videe
+2025-08-24 16:40:47,781 - INFO - 7 fichiers GraphData charges depuis batch_graphdata_chunked_results.pkl
+2025-08-24 16:40:47,781 - INFO - Debut de l'insertion batch dans Neo4j...
+2025-08-24 16:40:47,782 - INFO - [1/7] Ah_Bon___productions
+2025-08-24 16:40:47,782 - INFO - Traitement du fichier: Ah_Bon___productions
+2025-08-24 16:40:47,782 - INFO -   Insertion de 0 entites...
+2025-08-24 16:40:47,783 - INFO -   Insertion de 0 evenements...
+2025-08-24 16:40:47,783 - INFO -   Insertion de 0 relations...
+2025-08-24 16:40:47,783 - INFO -   Ah_Bon___productions traite avec succes
+2025-08-24 16:40:47,784 - INFO - [2/7] Amikal_sonic
+2025-08-24 16:40:47,784 - INFO - Traitement du fichier: Amikal_sonic
+2025-08-24 16:40:47,785 - INFO -   Insertion de 13 entites...
+2025-08-24 16:40:47,885 - INFO -   Insertion de 1 evenements...
+2025-08-24 16:40:47,965 - INFO -   Insertion de 13 relations...
+2025-08-24 16:40:48,039 - INFO -   Amikal_sonic traite avec succes
+2025-08-24 16:40:48,039 - INFO - [3/7] Art_Point_M
+2025-08-24 16:40:48,039 - INFO - Traitement du fichier: Art_Point_M
+2025-08-24 16:40:48,040 - INFO -   Insertion de 32 entites...
+2025-08-24 16:40:48,271 - INFO -   Insertion de 13 evenements...
+2025-08-24 16:40:48,378 - INFO -   Insertion de 31 relations...
+2025-08-24 16:40:48,655 - INFO -   Art_Point_M traite avec succes
+2025-08-24 16:40:48,655 - INFO - [4/7] Art_Zoyd_studios
+2025-08-24 16:40:48,655 - INFO - Traitement du fichier: Art_Zoyd_studios
+2025-08-24 16:40:48,655 - INFO -   Insertion de 4 entites...
+2025-08-24 16:40:48,678 - INFO -   Insertion de 12 evenements...
+2025-08-24 16:40:48,737 - INFO -   Insertion de 15 relations...
+2025-08-24 16:40:48,865 - INFO -   Art_Zoyd_studios traite avec succes
+2025-08-24 16:40:48,865 - INFO - [5/7] A_Gauche_de_la_Lune
+2025-08-24 16:40:48,865 - INFO - Traitement du fichier: A_Gauche_de_la_Lune
+2025-08-24 16:40:48,866 - INFO -   Insertion de 11 entites...
+2025-08-24 16:40:48,946 - INFO -   Insertion de 1 evenements...
+2025-08-24 16:40:48,979 - INFO -   Insertion de 5 relations...
+2025-08-24 16:40:49,071 - INFO -   A_Gauche_de_la_Lune traite avec succes
+2025-08-24 16:40:49,072 - INFO - [6/7] cleaning_report.json
+2025-08-24 16:40:49,072 - INFO - Traitement du fichier: cleaning_report.json
+2025-08-24 16:40:49,073 - INFO -   Insertion de 5 entites...
+2025-08-24 16:40:49,098 - INFO -   Insertion de 2 evenements...
+2025-08-24 16:40:49,111 - INFO -   Insertion de 4 relations...
+2025-08-24 16:40:49,178 - INFO -   cleaning_report.json traite avec succes
+2025-08-24 16:40:49,179 - INFO - [7/7] Fungi
+2025-08-24 16:40:49,179 - INFO - Traitement du fichier: Fungi
+2025-08-24 16:40:49,180 - INFO -   Insertion de 12 entites...
+2025-08-24 16:40:49,359 - INFO -   Insertion de 1 evenements...
+2025-08-24 16:40:49,368 - INFO -   Insertion de 3 relations...
+2025-08-24 16:40:49,463 - INFO -   Fungi traite avec succes
+2025-08-24 16:40:49,516 - ERROR - Erreur calcul statistique sample_entities: 'count'
+2025-08-24 16:40:49,520 - ERROR - Erreur calcul statistique sample_events: 'count'
+2025-08-24 16:40:49,539 - INFO - Connexion Neo4j fermee

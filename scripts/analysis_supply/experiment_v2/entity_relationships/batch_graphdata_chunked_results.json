@@ -1,0 +1,1606 @@
+[
+  {
+    "entities": [],
+    "events": [],
+    "relations": [],
+    "file_name": "Ah_Bon___productions",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Ah_Bon___productions",
+    "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "processed_at": "2025-08-24T16:30:15.356543",
+    "text_length": 0,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Association musicale organisant des événements et des lives streams pendant le confinement COVID-19.",
+        "intentions": [
+          "Promouvoir la musique électronique",
+          "Soutenir les artistes locaux",
+          "Créer une communauté en ligne pendant le confinement"
+        ],
+        "name": "Amikal Sonic",
+        "type": "association",
+        "uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "General Failure",
+        "type": "personne",
+        "uuid": "1c53b16f-6720-4bf1-af60-07d1b8b3a200"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Kezak",
+        "type": "personne",
+        "uuid": "50657311-5586-44b6-a9a3-53eca1bcc1de"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Drole2wazo",
+        "type": "personne",
+        "uuid": "3cadd73d-b82c-4435-9f9d-e342f3e49b27"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Blue Cookie",
+        "type": "personne",
+        "uuid": "ab19193b-a4bd-4e88-8ede-6ba47733e404"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "M. Leguman",
+        "type": "personne",
+        "uuid": "550eb60d-240b-46fc-8c02-3f9cdd0734db"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Krag",
+        "type": "personne",
+        "uuid": "d00295ac-212b-4a86-b4ca-02de45a42c23"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Jabamulla",
+        "type": "personne",
+        "uuid": "0167175c-a2e8-48c1-940d-b12d3dd6ba6c"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Bertrand Zystor",
+        "type": "personne",
+        "uuid": "130b3c14-8b67-4b1f-8c26-e9fb66ad2116"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Anton Martin",
+        "type": "personne",
+        "uuid": "8ab65d7f-b5b9-4b88-b976-94af702c94af"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Nod Akami",
+        "type": "personne",
+        "uuid": "3c1c4b4b-cdf1-41c4-ba0d-5f1211751b65"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Tchooma",
+        "type": "personne",
+        "uuid": "ea65e4a6-f122-4c92-9381-5f1848a49c7a"
+      },
+      {
+        "description": "Artiste et DJ associé à Amikal Sonic.",
+        "intentions": [
+          "Partager sa musique",
+          "Collaborer avec d'autres artistes"
+        ],
+        "name": "Olivier Classe",
+        "type": "personne",
+        "uuid": "67bb147e-2b4b-4288-81a4-92a6781cbb44"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Électronique",
+        "date": null,
+        "description": "Live stream sur Facebook tous les samedis à partir de 19h30 pendant le confinement COVID-19.",
+        "location": "Facebook",
+        "name": "Confined Clubbing",
+        "organizer_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6",
+        "uuid": "0ed3e74b-c105-4fcf-871d-9a50a88b30be"
+      }
+    ],
+    "relations": [
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "1c53b16f-6720-4bf1-af60-07d1b8b3a200",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "50657311-5586-44b6-a9a3-53eca1bcc1de",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "3cadd73d-b82c-4435-9f9d-e342f3e49b27",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "ab19193b-a4bd-4e88-8ede-6ba47733e404",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "550eb60d-240b-46fc-8c02-3f9cdd0734db",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "d00295ac-212b-4a86-b4ca-02de45a42c23",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "0167175c-a2e8-48c1-940d-b12d3dd6ba6c",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "130b3c14-8b67-4b1f-8c26-e9fb66ad2116",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "8ab65d7f-b5b9-4b88-b976-94af702c94af",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "3c1c4b4b-cdf1-41c4-ba0d-5f1211751b65",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "ea65e4a6-f122-4c92-9381-5f1848a49c7a",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "appartenance",
+        "source_uuid": "67bb147e-2b4b-4288-81a4-92a6781cbb44",
+        "target_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6"
+      },
+      {
+        "relation_type": "événement",
+        "source_uuid": "69cf0c22-af14-4b14-8616-70fd3c4596c6",
+        "target_uuid": "0ed3e74b-c105-4fcf-871d-9a50a88b30be"
+      }
+    ],
+    "file_name": "Amikal_sonic",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Amikal_sonic",
+    "hash": "35d73bd859b6abe8ec127f1f82907f0d8503af8da5a81fa928ea91785f554a3a",
+    "processed_at": "2025-08-24T16:31:29.971446",
+    "text_length": 830,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Art Point M est une association artistique fondée en 1991 par Fanny Bouyagui, basée à Roubaix.",
+        "intentions": [
+          "Promouvoir la culture urbaine et underground",
+          "Développer des projets artistiques innovants",
+          "Créer des événements culturels uniques",
+          "Favoriser la diversité culturelle et l'ouverture d'esprit"
+        ],
+        "name": "Art Point M",
+        "type": "association",
+        "uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6"
+      },
+      {
+        "description": "Fanny Bouyagui est une artiste et fondatrice de Art Point M.",
+        "intentions": [
+          "Créer des univers artistiques uniques",
+          "Promouvoir l'art et la culture",
+          "Innover dans les performances artistiques"
+        ],
+        "name": "Fanny Bouyagui",
+        "type": "personne",
+        "uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545"
+      },
+      {
+        "description": "Lille3000 est une association culturelle qui organise des événements artistiques et culturels à Lille.",
+        "intentions": [
+          "Organiser des événements culturels majeurs",
+          "Promouvoir l'art et la culture à Lille",
+          "Créer des collaborations artistiques innovantes"
+        ],
+        "name": "lille3000",
+        "type": "association",
+        "uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947"
+      },
+      {
+        "description": "La Compagnie Tire-Laine est une compagnie artistique.",
+        "intentions": [
+          "Créer des spectacles et performances artistiques",
+          "Collaborer avec d'autres artistes et associations"
+        ],
+        "name": "Compagnie Tire-Laine",
+        "type": "association",
+        "uuid": "fbd36242-dfd9-47d2-aba3-189fe24119e5"
+      },
+      {
+        "description": "Le NAME Festival est un festival de musique électronique créé par Art Point M.",
+        "intentions": [
+          "Promouvoir la musique électronique",
+          "Créer une plateforme pour les artistes électroniques",
+          "Organiser des événements musicaux innovants"
+        ],
+        "name": "NAME Festival",
+        "type": "autre",
+        "uuid": "821ff6cb-f694-4e55-a473-858124f83561"
+      },
+      {
+        "description": "Ellen Allien est une DJ, productrice et fondatrice du label BPitch.",
+        "intentions": [
+          "Promouvoir la musique électronique",
+          "Créer des performances musicales uniques",
+          "Innover dans la production musicale"
+        ],
+        "name": "Ellen Allien",
+        "type": "personne",
+        "uuid": "191fbdf1-a08a-4fc5-ad4c-78ab3fb84a4b"
+      },
+      {
+        "description": "La Braderie de l'Art est un événement artistique créé par Art Point M.",
+        "intentions": [
+          "Promouvoir l'art et le design de récupération",
+          "Créer un espace de création libre et collaborative",
+          "Encourager l'économie circulaire et le recyclage artistique"
+        ],
+        "name": "Braderie de l'Art",
+        "type": "autre",
+        "uuid": "5de965c3-180a-443b-b528-c0899a976408"
+      },
+      {
+        "description": "La Condition Publique est un lieu culturel à Roubaix.",
+        "intentions": [
+          "Accueillir des événements culturels et artistiques",
+          "Promouvoir la culture locale et nationale"
+        ],
+        "name": "La Condition Publique",
+        "type": "institution",
+        "uuid": "55a596da-b89a-43fe-b455-ad6c8e4094e5"
+      },
+      {
+        "description": "La Chapelle des Jésuites de Saint Omer est un lieu culturel.",
+        "intentions": [
+          "Accueillir des événements culturels et artistiques",
+          "Promouvoir la culture locale"
+        ],
+        "name": "Chapelle des Jésuites de Saint Omer",
+        "type": "institution",
+        "uuid": "170f3905-a06f-44f3-833c-41efbae05fcb"
+      },
+      {
+        "description": "Foule Power est un défilé participatif et 100% recyclé créé par Fanny Bouyagui.",
+        "intentions": [
+          "Promouvoir le recyclage et la participation artistique",
+          "Créer des événements artistiques uniques et inclusifs"
+        ],
+        "name": "Foule Power",
+        "type": "autre",
+        "uuid": "06f0285b-f209-4059-afe4-6d7696736272"
+      },
+      {
+        "description": "Le Festival Les Invites de Villeurbanne est un festival culturel.",
+        "intentions": [
+          "Organiser des événements culturels et artistiques",
+          "Promouvoir la culture locale et nationale"
+        ],
+        "name": "Festival Les Invites de Villeurbanne",
+        "type": "autre",
+        "uuid": "4ef456a7-72a2-41b2-b33d-dc12c0d9d5d0"
+      },
+      {
+        "description": "Le Festival MASA est un festival culturel en Côte d'Ivoire.",
+        "intentions": [
+          "Organiser des événements culturels et artistiques",
+          "Promouvoir la culture africaine et internationale"
+        ],
+        "name": "Festival MASA",
+        "type": "autre",
+        "uuid": "8c55c3fa-416d-4249-b397-2b9ba07c9e84"
+      },
+      {
+        "description": "Le Festival Urbx est un festival culturel à Roubaix.",
+        "intentions": [
+          "Organiser des événements culturels et artistiques",
+          "Promouvoir la culture locale"
+        ],
+        "name": "Festival Urbx",
+        "type": "autre",
+        "uuid": "55323623-3bf2-467d-bdb1-67bb43bdc74e"
+      },
+      {
+        "description": "Le Festival Art Rock est un festival de musique à Saint Brieuc.",
+        "intentions": [
+          "Organiser des événements musicaux",
+          "Promouvoir la musique et la culture locale"
+        ],
+        "name": "Festival Art Rock",
+        "type": "autre",
+        "uuid": "5e8d32b8-b55b-4fb4-8aa9-02cec462d2c9"
+      },
+      {
+        "description": "Le Louvre Lens est un musée d'art à Lens.",
+        "intentions": [
+          "Exposer des œuvres d'art",
+          "Promouvoir la culture et l'art"
+        ],
+        "name": "Louvre Lens",
+        "type": "institution",
+        "uuid": "f05dd576-5255-44db-88e4-e80d626581fa"
+      },
+      {
+        "description": "Le Palais de Tokyo est une institution culturelle à Paris.",
+        "intentions": [
+          "Exposer des œuvres d'art contemporain",
+          "Promouvoir la culture et l'art contemporain"
+        ],
+        "name": "Palais de Tokyo",
+        "type": "institution",
+        "uuid": "c4d6ffcf-f838-44b1-9473-1d29a25d5149"
+      },
+      {
+        "description": "Relais et Châteaux est une association d'hôtels et de restaurants de luxe.",
+        "intentions": [
+          "Promouvoir l'hôtellerie et la gastronomie de luxe",
+          "Organiser des événements culinaires et culturels"
+        ],
+        "name": "Relais et Châteaux",
+        "type": "association",
+        "uuid": "6459addb-631c-4c6c-b82b-f652cabd35f4"
+      },
+      {
+        "description": "La Ville du Havre est une ville portuaire en Normandie.",
+        "intentions": [
+          "Promouvoir la culture et le tourisme local",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Ville du Havre",
+        "type": "institution",
+        "uuid": "1294dcf6-a7f7-4950-b68b-52de0fd152ae"
+      },
+      {
+        "description": "Mons 2015 est une capitale européenne de la culture.",
+        "intentions": [
+          "Promouvoir la culture et l'art en Europe",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Mons 2015",
+        "type": "institution",
+        "uuid": "06d30236-eb2d-4a98-acf9-1e3534fa02ee"
+      },
+      {
+        "description": "Didier Fusillier est un acteur culturel et artistique.",
+        "intentions": [
+          "Promouvoir la culture et l'art",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Didier Fusillier",
+        "type": "personne",
+        "uuid": "8c1064ae-83a9-4adc-a861-5990c1fe9d33"
+      },
+      {
+        "description": "Jean Blaise est un acteur culturel et artistique.",
+        "intentions": [
+          "Promouvoir la culture et l'art",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Jean Blaise",
+        "type": "personne",
+        "uuid": "eaccc364-bb3b-4e51-9c7c-d050a01e367d"
+      },
+      {
+        "description": "José Manuel Gonçalvès est un acteur culturel et artistique.",
+        "intentions": [
+          "Promouvoir la culture et l'art",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "José Manuel Gonçalvès",
+        "type": "personne",
+        "uuid": "d3b4c810-ed48-4bfb-8a6f-b9dcc55007d0"
+      },
+      {
+        "description": "Hortense Archambault est une actrice culturelle et artistique.",
+        "intentions": [
+          "Promouvoir la culture et l'art",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Hortense Archambault",
+        "type": "personne",
+        "uuid": "07061b57-2509-45d4-abb4-22514215d73f"
+      },
+      {
+        "description": "Vincent Baudriller est un acteur culturel et artistique.",
+        "intentions": [
+          "Promouvoir la culture et l'art",
+          "Organiser des événements culturels et artistiques"
+        ],
+        "name": "Vincent Baudriller",
+        "type": "personne",
+        "uuid": "2dcd724b-d917-488e-bd16-2ac586dfac9c"
+      },
+      {
+        "description": "JC de Castelbajac est un créateur de mode et artiste.",
+        "intentions": [
+          "Créer des designs de mode innovants",
+          "Collaborer avec des artistes et associations culturelles"
+        ],
+        "name": "JC de Castelbajac",
+        "type": "personne",
+        "uuid": "48658a41-0801-4d18-99ed-0181f30eae0f"
+      },
+      {
+        "description": "Paul Levrez est un artiste et collaborateur d'Art Point M.",
+        "intentions": [
+          "Créer des performances artistiques",
+          "Collaborer avec des artistes et associations culturelles"
+        ],
+        "name": "Paul Levrez",
+        "type": "personne",
+        "uuid": "03a7d36c-d00b-4aaa-861d-be87701116d2"
+      },
+      {
+        "description": "Soa de Muse est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "Soa de Muse",
+        "type": "personne",
+        "uuid": "2caa1f46-781e-40ca-8ec3-daf73aab1cb6"
+      },
+      {
+        "description": "Brenda Mour est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "Brenda Mour",
+        "type": "personne",
+        "uuid": "92f382cd-11ce-4b13-b7e9-422b6b993856"
+      },
+      {
+        "description": "Bakel est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "Bakel",
+        "type": "personne",
+        "uuid": "60e8b17b-a390-4e85-8713-506f9bb53f55"
+      },
+      {
+        "description": "Namoro est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "Namoro",
+        "type": "personne",
+        "uuid": "ac08d98e-6e50-473e-9090-37fab3fc8a20"
+      },
+      {
+        "description": "La Mulette est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "La Mulette",
+        "type": "personne",
+        "uuid": "082e5ebb-af39-4c4e-a3dd-4161aa886eff"
+      },
+      {
+        "description": "Amélie Poulain est un artiste drag et queer.",
+        "intentions": [
+          "Performer des shows drag et queer",
+          "Promouvoir la diversité et l'inclusion"
+        ],
+        "name": "Amélie Poulain",
+        "type": "personne",
+        "uuid": "95ab71cc-b114-48e9-a3ee-e7377a0da0f5"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Multi-genres",
+        "date": "2022",
+        "description": "Ouverture de la saison 2022 de lille3000 avec une grande parade d'ouverture imaginée par Fanny Bouyagui.",
+        "location": "Lille",
+        "name": "Ouverture UTOPIA Saison 2022 de lille3000",
+        "organizer_uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947",
+        "uuid": "e607b040-5d99-47b7-b66a-21bd3f2fc859"
+      },
+      {
+        "concert_style": "Électro",
+        "date": "2005",
+        "description": "Festival de musique électronique créé par Art Point M.",
+        "location": "Roubaix",
+        "name": "NAME Festival",
+        "organizer_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "uuid": "51fb26b3-84bd-44a9-9def-65fc729a13d3"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2019",
+        "description": "Grande parade d'ouverture de lille3000 Eldorado imaginée par Fanny Bouyagui.",
+        "location": "Lille",
+        "name": "Ouverture lille3000 Eldorado",
+        "organizer_uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947",
+        "uuid": "608a1343-3f14-452f-9ec6-d11a07559cb3"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2012",
+        "description": "Défilé d'ouverture de Fantastic en collaboration avec JC de Castelbajac.",
+        "location": "Lille",
+        "name": "Défilé d'ouverture de Fantastic",
+        "organizer_uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947",
+        "uuid": "b4a8602f-bec2-406d-b40b-1ee66426245d"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2017",
+        "description": "Événement culturel organisé par la ville du Havre.",
+        "location": "Le Havre",
+        "name": "Un Été au Havre",
+        "organizer_uuid": "1294dcf6-a7f7-4950-b68b-52de0fd152ae",
+        "uuid": "e8d8dfdc-e402-4b8a-87ec-e52feb0beb90"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2015",
+        "description": "Événement culturel organisé par Mons 2015, Capitale Européenne de la Culture.",
+        "location": "Mons",
+        "name": "Mons 2015",
+        "organizer_uuid": "06d30236-eb2d-4a98-acf9-1e3534fa02ee",
+        "uuid": "e9b865a1-f1ab-4de7-b7e3-076bc97cc50b"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2019",
+        "description": "Défilé participatif et 100% recyclé créé par Fanny Bouyagui pour le festival Les Invites de Villeurbanne.",
+        "location": "Villeurbanne",
+        "name": "Foule Power Villeurbanne",
+        "organizer_uuid": "4ef456a7-72a2-41b2-b33d-dc12c0d9d5d0",
+        "uuid": "f96f29cd-8f20-41f0-b8dc-f642cd75be92"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2022",
+        "description": "Défilé participatif et 100% recyclé adapté pour Abidjan à l'occasion du festival MASA.",
+        "location": "Abidjan",
+        "name": "Foule Power Abidjan",
+        "organizer_uuid": "8c55c3fa-416d-4249-b397-2b9ba07c9e84",
+        "uuid": "502a4be4-e995-495c-8ff6-e636d62eca89"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2022",
+        "description": "Parade pour le 40e anniversaire du festival Art Rock à Saint Brieuc.",
+        "location": "Saint Brieuc",
+        "name": "40 ans du festival ArtRock",
+        "organizer_uuid": "5e8d32b8-b55b-4fb4-8aa9-02cec462d2c9",
+        "uuid": "8a1db2d1-6adc-4fde-a450-5cad51ebe063"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2021",
+        "description": "Banquet céramique organisé par le Louvre Lens en partenariat avec Art Point M.",
+        "location": "Lens",
+        "name": "Banquet Céramique Louvre Lens",
+        "organizer_uuid": "f05dd576-5255-44db-88e4-e80d626581fa",
+        "uuid": "e3c45071-cac7-4f20-b7db-7be71dd0f9a3"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "2015",
+        "description": "Performance artistique créée par Fanny Bouyagui pour Mons 2015, Capitale Européenne de la Culture.",
+        "location": "Mons",
+        "name": "Sun City",
+        "organizer_uuid": "06d30236-eb2d-4a98-acf9-1e3534fa02ee",
+        "uuid": "1e5428d5-abfd-4abe-8e63-d2bf8f627255"
+      },
+      {
+        "concert_style": "Drag et Queer",
+        "date": "2024",
+        "description": "Show Drag et Queer imaginée et scénographié par Art Point M & Paul Levrez pour Les Eurockéennes de Belfort.",
+        "location": "Belfort",
+        "name": "DRAGUE ME",
+        "organizer_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": "1991",
+        "description": "La Braderie de l'Art est un événement artistique créé par Art Point M.",
+        "location": "Roubaix",
+        "name": "Braderie de l'Art",
+        "organizer_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "uuid": "5d308e10-34cb-4cba-806d-c88ae063774d"
+      }
+    ],
+    "relations": [
+      {
+        "description": "Fanny Bouyagui est la fondatrice de Art Point M.",
+        "relation_type": "appartenance",
+        "source_uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545",
+        "target_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6"
+      },
+      {
+        "description": "Art Point M collabore avec lille3000 pour l'ouverture de la saison 2022.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947"
+      },
+      {
+        "description": "Fanny Bouyagui imagine la scénographie du Grand Bal d'Alice pour lille3000.",
+        "relation_type": "collaboration",
+        "source_uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545",
+        "target_uuid": "2eeec77d-2f82-4976-95d0-7c86c0274947"
+      },
+      {
+        "description": "Art Point M crée l'univers du char de la compagnie Tire-Laine.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "fbd36242-dfd9-47d2-aba3-189fe24119e5"
+      },
+      {
+        "description": "Art Point M initie le NAME Festival en 2005.",
+        "relation_type": "appartenance",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "821ff6cb-f694-4e55-a473-858124f83561"
+      },
+      {
+        "description": "Ellen Allien est la marraine du NAME Festival.",
+        "relation_type": "collaboration",
+        "source_uuid": "191fbdf1-a08a-4fc5-ad4c-78ab3fb84a4b",
+        "target_uuid": "821ff6cb-f694-4e55-a473-858124f83561"
+      },
+      {
+        "description": "Art Point M crée la Braderie de l'Art.",
+        "relation_type": "appartenance",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "5de965c3-180a-443b-b528-c0899a976408"
+      },
+      {
+        "description": "Art Point M collabore avec La Condition Publique pour le NAME Festival.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "55a596da-b89a-43fe-b455-ad6c8e4094e5"
+      },
+      {
+        "description": "Art Point M collabore avec la Chapelle des Jésuites de Saint Omer pour le NAME Festival.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "170f3905-a06f-44f3-833c-41efbae05fcb"
+      },
+      {
+        "description": "Fanny Bouyagui crée Foule Power pour le Festival Les Invites de Villeurbanne.",
+        "relation_type": "collaboration",
+        "source_uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545",
+        "target_uuid": "4ef456a7-72a2-41b2-b33d-dc12c0d9d5d0"
+      },
+      {
+        "description": "Foule Power est adapté pour le Festival MASA à Abidjan.",
+        "relation_type": "collaboration",
+        "source_uuid": "06f0285b-f209-4059-afe4-6d7696736272",
+        "target_uuid": "8c55c3fa-416d-4249-b397-2b9ba07c9e84"
+      },
+      {
+        "description": "Foule Power est adapté pour le Festival Urbx à Roubaix.",
+        "relation_type": "collaboration",
+        "source_uuid": "06f0285b-f209-4059-afe4-6d7696736272",
+        "target_uuid": "55323623-3bf2-467d-bdb1-67bb43bdc74e"
+      },
+      {
+        "description": "Fanny Bouyagui crée une parade pour le 40e anniversaire du Festival Art Rock.",
+        "relation_type": "collaboration",
+        "source_uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545",
+        "target_uuid": "5e8d32b8-b55b-4fb4-8aa9-02cec462d2c9"
+      },
+      {
+        "description": "Art Point M collabore avec le Louvre Lens pour le Banquet Céramique.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "f05dd576-5255-44db-88e4-e80d626581fa"
+      },
+      {
+        "description": "Art Point M collabore avec le Palais de Tokyo pour la scénographie de l’événement culinaire Taste Art.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "c4d6ffcf-f838-44b1-9473-1d29a25d5149"
+      },
+      {
+        "description": "Art Point M collabore avec Relais et Châteaux pour la scénographie de l’événement culinaire Taste Art.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "6459addb-631c-4c6c-b82b-f652cabd35f4"
+      },
+      {
+        "description": "Art Point M collabore avec la Ville du Havre pour Un Été au Havre.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "1294dcf6-a7f7-4950-b68b-52de0fd152ae"
+      },
+      {
+        "description": "Fanny Bouyagui est artiste associée pour Mons 2015, Capitale Européenne de la Culture.",
+        "relation_type": "collaboration",
+        "source_uuid": "a891fa9b-d005-4112-bd31-4e3daafb9545",
+        "target_uuid": "06d30236-eb2d-4a98-acf9-1e3534fa02ee"
+      },
+      {
+        "description": "Art Point M collabore avec Didier Fusillier pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "8c1064ae-83a9-4adc-a861-5990c1fe9d33"
+      },
+      {
+        "description": "Art Point M collabore avec Jean Blaise pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "eaccc364-bb3b-4e51-9c7c-d050a01e367d"
+      },
+      {
+        "description": "Art Point M collabore avec José Manuel Gonçalvès pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "d3b4c810-ed48-4bfb-8a6f-b9dcc55007d0"
+      },
+      {
+        "description": "Art Point M collabore avec Hortense Archambault pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "07061b57-2509-45d4-abb4-22514215d73f"
+      },
+      {
+        "description": "Art Point M collabore avec Vincent Baudriller pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "2dcd724b-d917-488e-bd16-2ac586dfac9c"
+      },
+      {
+        "description": "Art Point M collabore avec JC de Castelbajac pour des projets culturels.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "48658a41-0801-4d18-99ed-0181f30eae0f"
+      },
+      {
+        "description": "Art Point M collabore avec Paul Levrez pour le show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "e6dc034e-4643-4e1f-b365-3700be2bf4a6",
+        "target_uuid": "03a7d36c-d00b-4aaa-861d-be87701116d2"
+      },
+      {
+        "description": "Soa de Muse participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "2caa1f46-781e-40ca-8ec3-daf73aab1cb6",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "description": "Brenda Mour participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "92f382cd-11ce-4b13-b7e9-422b6b993856",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "description": "Bakel participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "60e8b17b-a390-4e85-8713-506f9bb53f55",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "description": "Namoro participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "ac08d98e-6e50-473e-9090-37fab3fc8a20",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "description": "La Mulette participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "082e5ebb-af39-4c4e-a3dd-4161aa886eff",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      },
+      {
+        "description": "Amélie Poulain participe au show DRAGUE ME.",
+        "relation_type": "collaboration",
+        "source_uuid": "95ab71cc-b114-48e9-a3ee-e7377a0da0f5",
+        "target_uuid": "0a41a789-61f4-4ced-8c51-e760525ca4a7"
+      }
+    ],
+    "file_name": "Art_Point_M",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Art_Point_M",
+    "hash": "9b91d539dcd7599322f8c68c8bf3a9793f1c11cfa3ffdee424140b3bd1057196",
+    "processed_at": "2025-08-24T16:35:32.823725",
+    "text_length": 26570,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Centre de Création Musicale basé à Valenciennes",
+        "intentions": [
+          "Favoriser la conception et la réalisation d'œuvres musicales nouvelles",
+          "Assurer la diffusion des œuvres musicales",
+          "Contribuer au développement de la recherche musicale",
+          "Transmettre les œuvres électroacoustiques"
+        ],
+        "name": "Art Zoyd Studios",
+        "type": "institution",
+        "uuid": "433b5161-5d5e-4da8-946d-ac533ace261c"
+      },
+      {
+        "description": "Artiste associé à Art Zoyd Studios",
+        "intentions": [
+          "Collaborer avec Art Zoyd Studios pour des projets musicaux",
+          "Participer à des résidences artistiques"
+        ],
+        "name": "Kasper T. Toeplitz",
+        "type": "personne",
+        "uuid": "774bdb17-bb0f-4a55-8607-58642a3f693b"
+      },
+      {
+        "description": "Cofondateur de Art Zoyd Studios",
+        "intentions": [
+          "Créer et développer Art Zoyd Studios",
+          "Promouvoir la recherche musicale"
+        ],
+        "name": "Gérard Hourbette",
+        "type": "personne",
+        "uuid": "9994685f-10f3-400f-a8f5-06b09e45f8b3"
+      },
+      {
+        "description": "Cofondatrice de Art Zoyd Studios",
+        "intentions": [
+          "Créer et développer Art Zoyd Studios",
+          "Promouvoir la recherche musicale"
+        ],
+        "name": "Monique Hourbette Vialadieu",
+        "type": "personne",
+        "uuid": "5666a46d-6a0a-4637-b038-766bb39fb5c3"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-03-11",
+        "description": "Expérience de vol#3",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Expérience de vol#3",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "bd5f2580-da90-4993-b26c-ad30fcf13053"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-03-21",
+        "description": "Résidence tremplin",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Victor Villafagne",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "e09df1e8-90af-43a9-975b-c320f424aca4"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-04-03",
+        "description": "Performance musicale",
+        "location": "Mons, Belgique",
+        "name": "Paysages des enfers",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "fe6e4690-2adc-42a7-a301-4805dbe9f5d4"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-04-29",
+        "description": "Résidence tremplin",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Victor Villafagne",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "1d4b6dce-406a-4e53-916b-bfa9a1875608"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-04-30",
+        "description": "Résidence tremplin",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Victor Villafagne",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "4d98c9c8-9f87-418f-add1-165e813e4d75"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-05-07",
+        "description": "Résidence tremplin",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Victor Villafagne",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "39d824e9-5a21-45c6-9e87-8ed93e32b718"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-06-06",
+        "description": "Résidence artistique",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Raphaël Néron",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "0e9a0cab-7ae1-4cd9-892f-27694f739bc9"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2025-08-28",
+        "description": "Résidence artistique",
+        "location": "Art Zoyd Studios, Valenciennes, France",
+        "name": "Julie Semoroz",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "cac36a03-f7c4-48b5-bfda-ee4a3bd695c3"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2026-02-27",
+        "description": "Création musicale",
+        "location": "Arenberg Creative Mine, Wallers, France",
+        "name": "Mémoires d'éléphant",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "94cfcf8f-1332-4d0e-ab73-232259f88f6a"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2026-03-19",
+        "description": "Performance musicale",
+        "location": "Le Phénix, Scène Nationale de Valenciennes, France",
+        "name": "Mémoires d'éléphant",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "bc815720-dbbd-4af9-9796-2a884afb6ce9"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2026-03-20",
+        "description": "Performance musicale",
+        "location": "Le Phénix, Scène Nationale de Valenciennes, France",
+        "name": "Mémoires d'éléphant",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "d5329a90-a356-4c8b-aff1-fb27f8f4ec20"
+      },
+      {
+        "concert_style": "Électroacoustique",
+        "date": "2026-03-21",
+        "description": "Performance musicale",
+        "location": "Le Phénix, Scène Nationale de Valenciennes, France",
+        "name": "Mémoires d'éléphant",
+        "organizer_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "uuid": "24a3a7a8-3a5b-4d05-a650-3bee64bbaf87"
+      }
+    ],
+    "relations": [
+      {
+        "description": "Fondation de Art Zoyd Studios",
+        "relation_type": "appartenance",
+        "source_uuid": "9994685f-10f3-400f-a8f5-06b09e45f8b3",
+        "target_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c"
+      },
+      {
+        "description": "Fondation de Art Zoyd Studios",
+        "relation_type": "appartenance",
+        "source_uuid": "5666a46d-6a0a-4637-b038-766bb39fb5c3",
+        "target_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c"
+      },
+      {
+        "description": "Artiste associé à Art Zoyd Studios",
+        "relation_type": "appartenance",
+        "source_uuid": "774bdb17-bb0f-4a55-8607-58642a3f693b",
+        "target_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c"
+      },
+      {
+        "date": "2025-03-11",
+        "description": "Organisation de l'événement Expérience de vol#3",
+        "event_uuid": "bd5f2580-da90-4993-b26c-ad30fcf13053",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "bd5f2580-da90-4993-b26c-ad30fcf13053"
+      },
+      {
+        "date": "2025-03-21",
+        "description": "Organisation de la résidence tremplin de Victor Villafagne",
+        "event_uuid": "e09df1e8-90af-43a9-975b-c320f424aca4",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "e09df1e8-90af-43a9-975b-c320f424aca4"
+      },
+      {
+        "date": "2025-04-03",
+        "description": "Organisation de l'événement Paysages des enfers",
+        "event_uuid": "fe6e4690-2adc-42a7-a301-4805dbe9f5d4",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "fe6e4690-2adc-42a7-a301-4805dbe9f5d4"
+      },
+      {
+        "date": "2025-04-29",
+        "description": "Organisation de la résidence tremplin de Victor Villafagne",
+        "event_uuid": "1d4b6dce-406a-4e53-916b-bfa9a1875608",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "1d4b6dce-406a-4e53-916b-bfa9a1875608"
+      },
+      {
+        "date": "2025-04-30",
+        "description": "Organisation de la résidence tremplin de Victor Villafagne",
+        "event_uuid": "4d98c9c8-9f87-418f-add1-165e813e4d75",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "4d98c9c8-9f87-418f-add1-165e813e4d75"
+      },
+      {
+        "date": "2025-05-07",
+        "description": "Organisation de la résidence tremplin de Victor Villafagne",
+        "event_uuid": "39d824e9-5a21-45c6-9e87-8ed93e32b718",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "39d824e9-5a21-45c6-9e87-8ed93e32b718"
+      },
+      {
+        "date": "2025-06-06",
+        "description": "Organisation de la résidence artistique de Raphaël Néron",
+        "event_uuid": "0e9a0cab-7ae1-4cd9-892f-27694f739bc9",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "0e9a0cab-7ae1-4cd9-892f-27694f739bc9"
+      },
+      {
+        "date": "2025-08-28",
+        "description": "Organisation de la résidence artistique de Julie Semoroz",
+        "event_uuid": "cac36a03-f7c4-48b5-bfda-ee4a3bd695c3",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "cac36a03-f7c4-48b5-bfda-ee4a3bd695c3"
+      },
+      {
+        "date": "2026-02-27",
+        "description": "Organisation de l'événement Mémoires d'éléphant",
+        "event_uuid": "94cfcf8f-1332-4d0e-ab73-232259f88f6a",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "94cfcf8f-1332-4d0e-ab73-232259f88f6a"
+      },
+      {
+        "date": "2026-03-19",
+        "description": "Organisation de l'événement Mémoires d'éléphant",
+        "event_uuid": "bc815720-dbbd-4af9-9796-2a884afb6ce9",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "bc815720-dbbd-4af9-9796-2a884afb6ce9"
+      },
+      {
+        "date": "2026-03-20",
+        "description": "Organisation de l'événement Mémoires d'éléphant",
+        "event_uuid": "d5329a90-a356-4c8b-aff1-fb27f8f4ec20",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "d5329a90-a356-4c8b-aff1-fb27f8f4ec20"
+      },
+      {
+        "date": "2026-03-21",
+        "description": "Organisation de l'événement Mémoires d'éléphant",
+        "event_uuid": "24a3a7a8-3a5b-4d05-a650-3bee64bbaf87",
+        "relation_type": "événement",
+        "source_uuid": "433b5161-5d5e-4da8-946d-ac533ace261c",
+        "target_uuid": "24a3a7a8-3a5b-4d05-a650-3bee64bbaf87"
+      }
+    ],
+    "file_name": "Art_Zoyd_studios",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Art_Zoyd_studios",
+    "hash": "62ffdf5ef7b1980b7862630acdd659f92d96fc1e33f4431ff31fac8634eb62ae",
+    "processed_at": "2025-08-24T16:37:17.506703",
+    "text_length": 5614,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Société lilloise de production de concerts spécialisée dans les musiques actuelles.",
+        "intentions": [
+          "Promouvoir les musiques actuelles",
+          "Développer des artistes émergents",
+          "Organiser des événements musicaux de qualité"
+        ],
+        "name": "À Gauche de la Lune",
+        "type": "entreprise",
+        "uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042"
+      },
+      {
+        "description": "Festival produit par À Gauche de la Lune mettant en avant des artistes en développement et des têtes d'affiche.",
+        "intentions": [
+          "Promouvoir de nouveaux talents",
+          "Créer un événement musical marquant"
+        ],
+        "name": "Les Paradis Artificiels",
+        "type": "autre",
+        "uuid": "35eb38c9-50a3-41c4-afb7-c5278abbefaa"
+      },
+      {
+        "description": "Artiste de musique hip-hop, rap français et reggae.",
+        "intentions": [
+          "Créer de la musique innovante",
+          "Se produire sur scène"
+        ],
+        "name": "Saïan Supa Celebration",
+        "type": "personne",
+        "uuid": "89099dc3-36a1-4f52-895b-05b53ee990be"
+      },
+      {
+        "description": "Groupe de musique pop rock.",
+        "intentions": [
+          "Créer de la musique pop rock",
+          "Se produire sur scène"
+        ],
+        "name": "Cosmopaark",
+        "type": "association",
+        "uuid": "36f28efa-9e60-4fa2-b0d6-9889e17f3ad6"
+      },
+      {
+        "description": "Groupe de musique électronique.",
+        "intentions": [
+          "Créer de la musique électronique",
+          "Se produire sur scène"
+        ],
+        "name": "Tukan",
+        "type": "association",
+        "uuid": "a7304b79-bacb-4081-86f3-5fc4aeeae297"
+      },
+      {
+        "description": "Groupe de musique post-punk.",
+        "intentions": [
+          "Créer de la musique post-punk",
+          "Se produire sur scène"
+        ],
+        "name": "Mad Foxes",
+        "type": "association",
+        "uuid": "5f382d4c-6de9-426b-a67f-7422a52fca3c"
+      },
+      {
+        "description": "Festival de musique pop.",
+        "intentions": [
+          "Organiser un festival de musique",
+          "Promouvoir des artistes"
+        ],
+        "name": "Lys Festival",
+        "type": "autre",
+        "uuid": "eb19d1a1-6794-4faf-98ad-7b9d21b5ae8f"
+      },
+      {
+        "description": "Festival de la Côte d'Opale.",
+        "intentions": [
+          "Organiser un festival de musique",
+          "Promouvoir des artistes"
+        ],
+        "name": "Festival de la Côte d'Opale",
+        "type": "autre",
+        "uuid": "c34a85ee-0390-475b-9801-f592bc2d089b"
+      },
+      {
+        "description": "Festival de musique.",
+        "intentions": [
+          "Organiser un festival de musique",
+          "Promouvoir des artistes"
+        ],
+        "name": "Pop Factory Bivouac Festival",
+        "type": "autre",
+        "uuid": "ffc8ae39-749d-4b2d-b845-08a5214efc79"
+      },
+      {
+        "description": "Festival de musique.",
+        "intentions": [
+          "Organiser un festival de musique",
+          "Promouvoir des artistes"
+        ],
+        "name": "La Fête de l'Humanité",
+        "type": "autre",
+        "uuid": "592901bc-fc3c-41af-a3bc-fe27a0c71ea1"
+      },
+      {
+        "description": "Festival de musique.",
+        "intentions": [
+          "Organiser un festival de musique",
+          "Promouvoir des artistes"
+        ],
+        "name": "Ivry en Fête",
+        "type": "autre",
+        "uuid": "48722627-c456-4426-a5ad-9effb26d7c3b"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Multi-genres",
+        "date": null,
+        "description": "Festival produit par À Gauche de la Lune mettant en avant des artistes en développement et des têtes d'affiche.",
+        "location": "Lille",
+        "name": "Les Paradis Artificiels",
+        "organizer_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "uuid": "1bd3c25d-c018-4512-a283-c71a16386ce6"
+      }
+    ],
+    "relations": [
+      {
+        "date": null,
+        "description": "Organise le festival",
+        "event_uuid": "1bd3c25d-c018-4512-a283-c71a16386ce6",
+        "relation_type": "événement",
+        "source_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "target_uuid": "35eb38c9-50a3-41c4-afb7-c5278abbefaa"
+      },
+      {
+        "date": null,
+        "description": "Collaboration artistique",
+        "event_uuid": null,
+        "relation_type": "collaboration",
+        "source_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "target_uuid": "89099dc3-36a1-4f52-895b-05b53ee990be"
+      },
+      {
+        "date": null,
+        "description": "Collaboration artistique",
+        "event_uuid": null,
+        "relation_type": "collaboration",
+        "source_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "target_uuid": "36f28efa-9e60-4fa2-b0d6-9889e17f3ad6"
+      },
+      {
+        "date": null,
+        "description": "Collaboration artistique",
+        "event_uuid": null,
+        "relation_type": "collaboration",
+        "source_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "target_uuid": "a7304b79-bacb-4081-86f3-5fc4aeeae297"
+      },
+      {
+        "date": null,
+        "description": "Collaboration artistique",
+        "event_uuid": null,
+        "relation_type": "collaboration",
+        "source_uuid": "9b5b8ed9-dcc1-4d11-a983-62a5cb079042",
+        "target_uuid": "5f382d4c-6de9-426b-a67f-7422a52fca3c"
+      }
+    ],
+    "file_name": "A_Gauche_de_la_Lune",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\A_Gauche_de_la_Lune",
+    "hash": "b6bf3c7b2a94a077f5870ebe128ab14fc2ba3eb5eb4a91449e50c54a609d35be",
+    "processed_at": "2025-08-24T16:38:13.597907",
+    "text_length": 7965,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Organisation de concerts et d'événements musicaux",
+        "intentions": [
+          "Promouvoir la diversité musicale",
+          "Créer des liens entre artistes émergents et public",
+          "Développer la scène culturelle locale"
+        ],
+        "name": "Art Point M",
+        "type": "association",
+        "uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1"
+      },
+      {
+        "description": "Structure culturelle basée à Lille",
+        "intentions": [
+          "Développer des projets culturels innovants",
+          "Favoriser les collaborations artistiques"
+        ],
+        "name": "lille3000",
+        "type": "institution",
+        "uuid": "baac9074-df3b-4bd4-bb82-a1b506a16964"
+      },
+      {
+        "description": "Festival de musique",
+        "intentions": [
+          "Promouvoir la musique rock",
+          "Créer une expérience unique pour les festivaliers"
+        ],
+        "name": "Les Eurockéennes",
+        "type": "autre",
+        "uuid": "2737fafd-0eb6-48de-bf11-06b31ba52de8"
+      },
+      {
+        "description": "Festival de musique",
+        "intentions": [
+          "Promouvoir la musique alternative",
+          "Créer une expérience unique pour les festivaliers"
+        ],
+        "name": "NAME Festival",
+        "type": "autre",
+        "uuid": "beb6cae1-cc85-43e1-aceb-70619baa17c4"
+      },
+      {
+        "description": "Artiste et créatrice",
+        "intentions": [
+          "Développer des projets artistiques innovants",
+          "Favoriser les collaborations artistiques"
+        ],
+        "name": "Fanny Bouyagui",
+        "type": "personne",
+        "uuid": "4dbb90cb-76a8-4f89-b4eb-5badad3e89fe"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Multi-genres",
+        "date": null,
+        "description": "Festival de musique organisé par Art Point M",
+        "location": null,
+        "name": "Les Eurockéennes",
+        "organizer_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1",
+        "uuid": "feb070d9-a1b6-43bc-a01c-d98e9acd4ab8"
+      },
+      {
+        "concert_style": "Multi-genres",
+        "date": null,
+        "description": "Festival de musique initié par Art Point M",
+        "location": null,
+        "name": "NAME Festival",
+        "organizer_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1",
+        "uuid": "ed69f2ce-ab0c-4fce-a159-f1fc0dfa05a3"
+      }
+    ],
+    "relations": [
+      {
+        "date": null,
+        "description": "Fanny Bouyagui crée Art Point M",
+        "event_uuid": null,
+        "relation_type": "appartenance",
+        "source_uuid": "4dbb90cb-76a8-4f89-b4eb-5badad3e89fe",
+        "target_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1"
+      },
+      {
+        "date": null,
+        "description": "Art Point M collabore avec lille3000",
+        "event_uuid": null,
+        "relation_type": "collaboration",
+        "source_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1",
+        "target_uuid": "baac9074-df3b-4bd4-bb82-a1b506a16964"
+      },
+      {
+        "date": null,
+        "description": "Art Point M organise Les Eurockéennes",
+        "event_uuid": "feb070d9-a1b6-43bc-a01c-d98e9acd4ab8",
+        "relation_type": "événement",
+        "source_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1",
+        "target_uuid": "2737fafd-0eb6-48de-bf11-06b31ba52de8"
+      },
+      {
+        "date": null,
+        "description": "Art Point M initie le NAME Festival",
+        "event_uuid": "ed69f2ce-ab0c-4fce-a159-f1fc0dfa05a3",
+        "relation_type": "événement",
+        "source_uuid": "053466c2-9fa9-47da-a221-d5aaea3663f1",
+        "target_uuid": "beb6cae1-cc85-43e1-aceb-70619baa17c4"
+      }
+    ],
+    "file_name": "cleaning_report.json",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\cleaning_report.json",
+    "hash": "1aaf77c7b6de2f4d70e9fb7f4a4b6396aa03ae95b691abd68a0df797c607d3c3",
+    "processed_at": "2025-08-24T16:38:47.478683",
+    "text_length": 3926,
+    "processing_method": "direct"
+  },
+  {
+    "entities": [
+      {
+        "description": "Association pour la promotion de la musique et des événements culturels.",
+        "intentions": [
+          "Promouvoir la musique vivante",
+          "Créer des espaces d'échange et de partage",
+          "Favoriser la diffusion des cultures",
+          "Promouvoir le bien-être par la musique",
+          "Soutenir les artistes locaux"
+        ],
+        "name": "Le Fungi",
+        "type": "association",
+        "uuid": "ed40101a-38ef-4a73-9cad-ba56cf0e0b7a"
+      },
+      {
+        "description": "Artisane du lien, une décennie d'expérience dans l'événementiel et un quinquennat dans l'E.S.S.",
+        "intentions": [
+          "Diriger l'association Le Fungi",
+          "Créer des espaces d'échange et de partage",
+          "Promouvoir la musique vivante"
+        ],
+        "name": "Orlane Mabire",
+        "type": "personne",
+        "uuid": "46c2c7a5-78c1-4149-b5d4-3517328ba0a6"
+      },
+      {
+        "description": "Docteur ès chiffres, éternel optimiste.",
+        "intentions": [
+          "Gérer la trésorerie de l'association Le Fungi",
+          "Soutenir les projets artistiques et culturels"
+        ],
+        "name": "Axel Potier",
+        "type": "personne",
+        "uuid": "39290573-740f-42c1-9be4-01387c69baa3"
+      },
+      {
+        "description": "Maillage accueille, accompagne et oriente les porteur·euse·s de projets d’utilité sociale.",
+        "intentions": [
+          "Accueillir et accompagner les porteurs de projets d'utilité sociale"
+        ],
+        "name": "Maillage",
+        "type": "association",
+        "uuid": "1a853cff-d7ef-4df9-b237-e825a62b0e5b"
+      },
+      {
+        "description": "Maison des associations de Lille.",
+        "intentions": [
+          "Accueillir et accompagner les associations locales"
+        ],
+        "name": "Maison des associations de Lille",
+        "type": "institution",
+        "uuid": "c08ba00a-2823-4c97-bf03-bcbf7488d291"
+      },
+      {
+        "description": "Tiers-lieu solidaire sur une péniche amarrée à l'entrée du parc de la Citadelle de Lille.",
+        "intentions": [
+          "Créer un espace solidaire et culturel"
+        ],
+        "name": "Le Bus Magique",
+        "type": "association",
+        "uuid": "fa8006bd-0567-4d90-855c-3d4d1fa88fa0"
+      },
+      {
+        "description": "Lieu de pratique, d'enseignement & de formation.",
+        "intentions": [
+          "Promouvoir la pratique et l'enseignement de la musique"
+        ],
+        "name": "Campus des Musiques Actuelles",
+        "type": "institution",
+        "uuid": "6d3c1e44-755d-49b0-a495-a9ce583692d4"
+      },
+      {
+        "description": "Soutien et dynamise l’écosystème musical en région.",
+        "intentions": [
+          "Soutenir et dynamiser l'écosystème musical régional"
+        ],
+        "name": "Haute Fidélité",
+        "type": "association",
+        "uuid": "360e77c2-6a0e-4f78-bcdd-7d3c12dac944"
+      },
+      {
+        "description": "Conseils, ressources et informations des artistes et acteurs du secteur musical en Hauts-de-France.",
+        "intentions": [
+          "Fournir des conseils et ressources aux artistes et acteurs du secteur musical"
+        ],
+        "name": "Music-hdf.org",
+        "type": "institution",
+        "uuid": "17bee8aa-61a8-45ea-9ecc-e18aa701333a"
+      },
+      {
+        "description": "Atelier participatif et solidaire d'aide à la réparation de vélo.",
+        "intentions": [
+          "Promouvoir la réparation solidaire de vélos"
+        ],
+        "name": "Les Jantes du Nord",
+        "type": "association",
+        "uuid": "fe487887-d821-44e1-ab01-bfd32e0b95a1"
+      },
+      {
+        "description": "Réseau d'associations militant & travaillant pour la protection de l’environnement, l’éducation au développement durable, la citoyenneté et les droits de l’Homme.",
+        "intentions": [
+          "Protéger l'environnement",
+          "Promouvoir l'éducation au développement durable"
+        ],
+        "name": "Maison régionale de l'environnement et des solidarités",
+        "type": "association",
+        "uuid": "988a6ac4-0807-4285-9c46-5d3b61eb0294"
+      },
+      {
+        "description": "Le carrefour des solidarités associatives.",
+        "intentions": [
+          "Promouvoir les solidarités associatives"
+        ],
+        "name": "Place des assos",
+        "type": "association",
+        "uuid": "e3416971-8dd5-48a6-827d-5062b54c6f5f"
+      }
+    ],
+    "events": [
+      {
+        "concert_style": "Multi-genres",
+        "date": "2024-11-24",
+        "description": "Rencontre musicale atypique",
+        "location": null,
+        "name": "Fungi En Aparthé",
+        "organizer_uuid": "ed40101a-38ef-4a73-9cad-ba56cf0e0b7a",
+        "uuid": "16894ca8-1a48-4a6c-8541-e07303cb013d"
+      }
+    ],
+    "relations": [
+      {
+        "date": null,
+        "description": "Orlane Mabire est la présidente de l'association Le Fungi.",
+        "event_uuid": null,
+        "relation_type": "appartenance",
+        "source_uuid": "46c2c7a5-78c1-4149-b5d4-3517328ba0a6",
+        "target_uuid": "ed40101a-38ef-4a73-9cad-ba56cf0e0b7a"
+      },
+      {
+        "date": null,
+        "description": "Axel Potier est le trésorier de l'association Le Fungi.",
+        "event_uuid": null,
+        "relation_type": "appartenance",
+        "source_uuid": "39290573-740f-42c1-9be4-01387c69baa3",
+        "target_uuid": "ed40101a-38ef-4a73-9cad-ba56cf0e0b7a"
+      },
+      {
+        "date": null,
+        "description": "Le Fungi organise l'événement Fungi En Aparthé.",
+        "event_uuid": "16894ca8-1a48-4a6c-8541-e07303cb013d",
+        "relation_type": "événement",
+        "source_uuid": "ed40101a-38ef-4a73-9cad-ba56cf0e0b7a",
+        "target_uuid": "16894ca8-1a48-4a6c-8541-e07303cb013d"
+      }
+    ],
+    "file_name": "Fungi",
+    "file_path": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Fungi",
+    "hash": "f6182614e849e874e767c173a4cadb21d3a754bc1587b2d16141ff7323854d8b",
+    "processed_at": "2025-08-24T16:39:36.802468",
+    "text_length": 15314,
+    "processing_method": "direct"
+  }
+]

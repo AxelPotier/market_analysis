@@ -1,0 +1,237 @@
+{
+  "analysis_timestamp": "2025-08-24T15:50:54.448719",
+  "file_analyzed": "batch_graphdata_chunked_results.pkl",
+  "summary": {
+    "total_files": 8,
+    "entities_total": 80,
+    "events_total": 32,
+    "relations_total": 89,
+    "entities_with_uuid": 80,
+    "entities_with_id": 0,
+    "entities_with_both": 0,
+    "events_with_uuid": 32,
+    "events_with_id": 0,
+    "events_with_both": 0,
+    "relations_with_new_format": 89,
+    "relations_with_old_format": 0,
+    "uuid_issues_count": 54,
+    "duplicates_count": 17
+  },
+  "uuid_issues": [
+    "UUID invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "UUID invalide dans Amikal_sonic: b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9",
+    "UUID invalide dans Amikal_sonic: c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+    "UUID invalide dans Amikal_sonic: d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1",
+    "UUID invalide dans Amikal_sonic: e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+    "UUID invalide dans Amikal_sonic: f6g7h8i9-j0k1-2345-l6m7-n8o9p0q1r2s3",
+    "UUID invalide dans Amikal_sonic: g7h8i9j0-k1l2-3456-m7n8-o9p0q1r2s3t4",
+    "UUID invalide dans Amikal_sonic: h8i9j0k1-l2m3-4567-n8o9-p0q1r2s3t4u5",
+    "UUID invalide dans Amikal_sonic: i9j0k1l2-m3n4-5678-o9p0-q1r2s3t4u5v6",
+    "UUID invalide dans Amikal_sonic: j0k1l2m3-n4o5-6789-p0q1-r2s3t4u5v6w7",
+    "UUID invalide dans Amikal_sonic: k1l2m3n4-o5p6-7890-q1r2-s3t4u5v6w7x8",
+    "UUID invalide dans Amikal_sonic: l2m3n4o5-p6q7-8901-r2s3-t4u5v6w7x8y9",
+    "UUID invalide dans Amikal_sonic: m3n4o5p6-q7r8-9012-s3t4-u5v6w7x8y9z0",
+    "UUID invalide dans Amikal_sonic: e1f2g3h4-i5j6-7890-k1l2-m3n4o5p6q7r8",
+    "source_uuid invalide dans Amikal_sonic: b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: f6g7h8i9-j0k1-2345-l6m7-n8o9p0q1r2s3",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: g7h8i9j0-k1l2-3456-m7n8-o9p0q1r2s3t4",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: h8i9j0k1-l2m3-4567-n8o9-p0q1r2s3t4u5",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: i9j0k1l2-m3n4-5678-o9p0-q1r2s3t4u5v6",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: j0k1l2m3-n4o5-6789-p0q1-r2s3t4u5v6w7",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: k1l2m3n4-o5p6-7890-q1r2-s3t4u5v6w7x8",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: l2m3n4o5-p6q7-8901-r2s3-t4u5v6w7x8y9",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: m3n4o5p6-q7r8-9012-s3t4-u5v6w7x8y9z0",
+    "target_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans Amikal_sonic: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "target_uuid invalide dans Amikal_sonic: e1f2g3h4-i5j6-7890-k1l2-m3n4o5p6q7r8",
+    "UUID invalide dans cleaning_report.json: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "UUID invalide dans cleaning_report.json: b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9",
+    "UUID invalide dans cleaning_report.json: c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+    "UUID invalide dans cleaning_report.json: d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1",
+    "UUID invalide dans cleaning_report.json: e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+    "UUID invalide dans cleaning_report.json: f6g7h8i9-j0k1-2345-l6m7-n8o9p0q1r2s3",
+    "source_uuid invalide dans cleaning_report.json: c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+    "target_uuid invalide dans cleaning_report.json: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "source_uuid invalide dans cleaning_report.json: a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+    "target_uuid invalide dans cleaning_report.json: b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9"
+  ],
+  "duplicates": {
+    "550e8400-e29b-41d4-a716-446655440000": [
+      "Art_Point_M:entity:Art Point M",
+      "Art_Zoyd_studios:entity:Art Zoyd Studios",
+      "A_Gauche_de_la_Lune:entity:À Gauche de la Lune",
+      "Fungi:entity:Le Fungi"
+    ],
+    "550e8400-e29b-41d4-a716-446655440001": [
+      "Art_Zoyd_studios:entity:Kasper T. Toeplitz",
+      "A_Gauche_de_la_Lune:entity:Florent Decroix",
+      "Fungi:entity:Orlane Mabire"
+    ],
+    "550e8400-e29b-41d4-a716-446655440002": [
+      "Art_Zoyd_studios:entity:Gallery AZS",
+      "A_Gauche_de_la_Lune:entity:Anne Sophie Gadrey",
+      "Fungi:entity:Axel Potier"
+    ],
+    "550e8400-e29b-41d4-a716-446655440003": [
+      "Art_Zoyd_studios:entity:Gérard Hourbette",
+      "A_Gauche_de_la_Lune:entity:Warhaus",
+      "Fungi:entity:Maillage"
+    ],
+    "550e8400-e29b-41d4-a716-446655440004": [
+      "Art_Zoyd_studios:entity:Monique Hourbette Vialadieu",
+      "A_Gauche_de_la_Lune:entity:Frànçois & The Atlas Mountains",
+      "Fungi:entity:Campus des Musiques Actuelles"
+    ],
+    "550e8400-e29b-41d4-a716-446655440005": [
+      "Art_Zoyd_studios:event:Expérience de vol#3",
+      "A_Gauche_de_la_Lune:entity:billie",
+      "Fungi:entity:Haute Fidélité"
+    ],
+    "550e8400-e29b-41d4-a716-446655440006": [
+      "Art_Zoyd_studios:event:Victor Villafagne",
+      "A_Gauche_de_la_Lune:entity:PAMELA",
+      "Fungi:entity:Music-hdf.org"
+    ],
+    "550e8400-e29b-41d4-a716-446655440007": [
+      "Art_Zoyd_studios:event:Paysages des enfers",
+      "A_Gauche_de_la_Lune:entity:Max Baby",
+      "Fungi:event:Fungi En Aparthé"
+    ],
+    "550e8400-e29b-41d4-a716-446655440008": [
+      "Art_Zoyd_studios:event:Victor Villafagne",
+      "A_Gauche_de_la_Lune:entity:Muddy Monk"
+    ],
+    "550e8400-e29b-41d4-a716-446655440009": [
+      "Art_Zoyd_studios:event:Victor Villafagne",
+      "A_Gauche_de_la_Lune:entity:Saïan Supa Celebration"
+    ],
+    "550e8400-e29b-41d4-a716-446655440010": [
+      "Art_Zoyd_studios:event:Victor Villafagne",
+      "A_Gauche_de_la_Lune:entity:Cosmopaark"
+    ],
+    "550e8400-e29b-41d4-a716-446655440011": [
+      "Art_Zoyd_studios:event:Raphaël Néron",
+      "A_Gauche_de_la_Lune:entity:Tukan"
+    ],
+    "550e8400-e29b-41d4-a716-446655440012": [
+      "Art_Zoyd_studios:event:Julie Semoroz",
+      "A_Gauche_de_la_Lune:entity:Mad Foxes"
+    ],
+    "550e8400-e29b-41d4-a716-446655440013": [
+      "Art_Zoyd_studios:event:Mémoires d’éléphant",
+      "A_Gauche_de_la_Lune:entity:Lys Festival"
+    ],
+    "550e8400-e29b-41d4-a716-446655440014": [
+      "Art_Zoyd_studios:event:Mémoires d’éléphant",
+      "A_Gauche_de_la_Lune:entity:Festival de la Côte d’Opale"
+    ],
+    "550e8400-e29b-41d4-a716-446655440015": [
+      "Art_Zoyd_studios:event:Mémoires d’éléphant",
+      "A_Gauche_de_la_Lune:entity:Pop Factory Bivouac Festival"
+    ],
+    "550e8400-e29b-41d4-a716-446655440016": [
+      "Art_Zoyd_studios:event:Mémoires d’éléphant",
+      "A_Gauche_de_la_Lune:entity:Les Paradis Artificiels"
+    ]
+  },
+  "entity_patterns": {
+    "versions": {
+      "4": 62
+    },
+    "variants": {
+      "specified in RFC 4122": 62
+    }
+  },
+  "event_patterns": {
+    "versions": {
+      "4": 30
+    },
+    "variants": {
+      "specified in RFC 4122": 30
+    }
+  },
+  "format_consistency": {
+    "mixte": 2,
+    "nouveau_format": 6
+  },
+  "files_analysis": [
+    {
+      "file_name": "Ah_Bon___productions",
+      "entities_count": 0,
+      "events_count": 0,
+      "relations_count": 0,
+      "uuid_format_consistency": "mixte",
+      "issues": []
+    },
+    {
+      "file_name": "Amikal_sonic",
+      "entities_count": 13,
+      "events_count": 1,
+      "relations_count": 13,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Art_Point_M",
+      "entities_count": 25,
+      "events_count": 17,
+      "relations_count": 39,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Art_Zoyd_studios",
+      "entities_count": 5,
+      "events_count": 12,
+      "relations_count": 6,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "A_Gauche_de_la_Lune",
+      "entities_count": 25,
+      "events_count": 0,
+      "relations_count": 24,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Bougez_Rock",
+      "entities_count": 0,
+      "events_count": 0,
+      "relations_count": 0,
+      "uuid_format_consistency": "mixte",
+      "issues": []
+    },
+    {
+      "file_name": "cleaning_report.json",
+      "entities_count": 5,
+      "events_count": 1,
+      "relations_count": 4,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Fungi",
+      "entities_count": 7,
+      "events_count": 1,
+      "relations_count": 3,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    }
+  ]
+}

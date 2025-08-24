@@ -1,0 +1,100 @@
+{
+  "analysis_timestamp": "2025-08-24T16:48:57.463298",
+  "file_analyzed": "batch_graphdata_chunked_results.pkl",
+  "summary": {
+    "total_files": 7,
+    "entities_total": 77,
+    "events_total": 30,
+    "relations_total": 71,
+    "entities_with_uuid": 77,
+    "entities_with_id": 0,
+    "entities_with_both": 0,
+    "events_with_uuid": 30,
+    "events_with_id": 0,
+    "events_with_both": 0,
+    "relations_with_new_format": 71,
+    "relations_with_old_format": 0,
+    "uuid_issues_count": 0,
+    "duplicates_count": 0
+  },
+  "uuid_issues": [],
+  "duplicates": {},
+  "entity_patterns": {
+    "versions": {
+      "4": 77
+    },
+    "variants": {
+      "specified in RFC 4122": 77
+    }
+  },
+  "event_patterns": {
+    "versions": {
+      "4": 30
+    },
+    "variants": {
+      "specified in RFC 4122": 30
+    }
+  },
+  "format_consistency": {
+    "mixte": 1,
+    "nouveau_format": 6
+  },
+  "files_analysis": [
+    {
+      "file_name": "Ah_Bon___productions",
+      "entities_count": 0,
+      "events_count": 0,
+      "relations_count": 0,
+      "uuid_format_consistency": "mixte",
+      "issues": []
+    },
+    {
+      "file_name": "Amikal_sonic",
+      "entities_count": 13,
+      "events_count": 1,
+      "relations_count": 13,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Art_Point_M",
+      "entities_count": 32,
+      "events_count": 13,
+      "relations_count": 31,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Art_Zoyd_studios",
+      "entities_count": 4,
+      "events_count": 12,
+      "relations_count": 15,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "A_Gauche_de_la_Lune",
+      "entities_count": 11,
+      "events_count": 1,
+      "relations_count": 5,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "cleaning_report.json",
+      "entities_count": 5,
+      "events_count": 2,
+      "relations_count": 4,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    },
+    {
+      "file_name": "Fungi",
+      "entities_count": 12,
+      "events_count": 1,
+      "relations_count": 3,
+      "uuid_format_consistency": "nouveau_format",
+      "issues": []
+    }
+  ]
+}

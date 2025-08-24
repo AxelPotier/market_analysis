@@ -7,7 +7,7 @@ import pandas as pd
 import pickle
 import hashlib
 import logging
-
+from pydantic import BaseModel
 ## the output format to be used
 # ---------------------------
 from src.columns_definition import ConcertOrganizerGraph 
@@ -53,7 +53,7 @@ class StudyText:
         df (pd.DataFrame): DataFrame to store analysis results.
     """
 
-    def __init__(self, path_prompt: str, cache_file: str = "df.p"):
+    def __init__(self, path_prompt: str, modelOutput : type[BaseModel] = ConcertOrganizerGraph, cache_file: str = "df.p"):
         """
         Initializes the StudyText class with a prompt and cache file.
 
@@ -62,7 +62,7 @@ class StudyText:
         """
         with open(path_prompt, "r", encoding="utf-8") as f:
             self.prompt = f.read()
-
+        self.modelOutput = modelOutput
         self.cache_file = cache_file
         self.load_results()
 
@@ -164,7 +164,7 @@ class StudyText:
                     "content": prompt
                 },
             ],
-            response_format=ConcertOrganizerGraph
+            response_format=self.modelOutput
         )
         dic = json.loads(chat_response.choices[0].message.content)
         return dic
