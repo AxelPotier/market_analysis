@@ -8,6 +8,7 @@ import pickle
 import hashlib
 import logging
 from pydantic import BaseModel
+from tqdm import tqdm 
 ## the output format to be used
 # ---------------------------
 from src.columns_definition import ConcertOrganizerGraph 
@@ -109,7 +110,7 @@ class StudyText:
         """
         processed_hashes = set(self.df["hash"])
 
-        for file in os.listdir(folder_path):
+        for file in tqdm(os.listdir(folder_path)):
             # Retrieving the text
             file_path = os.path.join(folder_path, file)
             if os.path.isfile(file_path):

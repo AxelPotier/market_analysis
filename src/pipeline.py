@@ -6,7 +6,7 @@ import pickle
 import logging
 from src.transform import Transform
 from pydantic import BaseModel
-
+from tqdm import tqdm
 
 
 def set_logger():
@@ -38,11 +38,10 @@ class PipeLine:
             and a cache name for the temporary information. 
         
         '''
-        # the folder
 
         # Study texts
         df = None
-        for dic in list_dic_folders:
+        for dic in tqdm(list_dic_folders):
             folder_path = dic['folder_path']
             cache_file = dic['cache_file']
             st= study_text.StudyText(path_prompt, modelOutput, cache_file )
@@ -62,7 +61,7 @@ class PipeLine:
                                not in df_augmented_data.columns or col == 'file_name']
         
 
-        self.df = df_augmented_data.merge(df[list_col],on='file_name', how='left')
+        self.df = df_augmented_data.merge(df[list_col],on='file_name', how='inner')
         ## reset indexs and construct the id column
         self.df['id'] = self.df.index
         self.df = self.df.reset_index(drop =True)

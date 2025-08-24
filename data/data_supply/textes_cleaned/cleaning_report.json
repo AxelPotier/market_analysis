@@ -1,0 +1,125 @@
+{
+  "cleaning_timestamp": "2025-08-24T14:58:25.590364",
+  "summary": {
+    "files_processed": 5,
+    "files_failed": 2,
+    "total_chars_removed": 32323,
+    "operations_performed": [
+      "Encodage normalisé: -0 chars",
+      "Contenu structuré: -0 chars",
+      "Navigation web supprimée: -3492 chars",
+      "Contenu répétitif supprimé: -29235 chars",
+      "Encodage normalisé: --2 chars",
+      "Contenu structuré: --261 chars",
+      "Encodage normalisé: -0 chars",
+      "Contenu structuré: -0 chars",
+      "Encodage normalisé: --8 chars",
+      "Contenu structuré: -0 chars",
+      "Segmentation corrigée: --132 chars",
+      "Encodage normalisé: --1 chars",
+      "Contenu structuré: -0 chars"
+    ]
+  },
+  "file_results": [
+    {
+      "success": false,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Ah_Bon___productions",
+      "error": "division by zero"
+    },
+    {
+      "success": true,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Amikal_sonic",
+      "output_file": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Amikal_sonic",
+      "original_size": 830,
+      "cleaned_size": 830,
+      "chars_removed": 0,
+      "compression_ratio": 0.0,
+      "operations": [
+        "Encodage normalisé: -0 chars",
+        "Contenu structuré: -0 chars"
+      ],
+      "issues_detected": [
+        "special_characters"
+      ]
+    },
+    {
+      "success": true,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Art_Point_M",
+      "output_file": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Art_Point_M",
+      "original_size": 59077,
+      "cleaned_size": 26570,
+      "chars_removed": 32464,
+      "compression_ratio": 55.02479814479408,
+      "operations": [
+        "Navigation web supprimée: -3492 chars",
+        "Contenu répétitif supprimé: -29235 chars",
+        "Encodage normalisé: --2 chars",
+        "Contenu structuré: --261 chars"
+      ],
+      "issues_detected": [
+        "web_navigation_elements",
+        "repeated_menu_structure",
+        "text_repetition",
+        "special_characters"
+      ]
+    },
+    {
+      "success": true,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Art_Zoyd_studios",
+      "output_file": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Art_Zoyd_studios",
+      "original_size": 5614,
+      "cleaned_size": 5614,
+      "chars_removed": 0,
+      "compression_ratio": 0.0,
+      "operations": [
+        "Encodage normalisé: -0 chars",
+        "Contenu structuré: -0 chars"
+      ],
+      "issues_detected": [
+        "text_repetition",
+        "special_characters"
+      ]
+    },
+    {
+      "success": true,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\A_Gauche_de_la_Lune",
+      "output_file": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\A_Gauche_de_la_Lune",
+      "original_size": 7957,
+      "cleaned_size": 7965,
+      "chars_removed": -8,
+      "compression_ratio": -0.10054040467512883,
+      "operations": [
+        "Encodage normalisé: --8 chars",
+        "Contenu structuré: -0 chars"
+      ],
+      "issues_detected": [
+        "text_repetition",
+        "special_characters"
+      ]
+    },
+    {
+      "success": false,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Bougez_Rock",
+      "error": "division by zero"
+    },
+    {
+      "success": true,
+      "input_file": "..\\..\\..\\..\\data\\data_supply\\textes\\Fungi",
+      "output_file": "..\\..\\..\\..\\data\\data_supply\\textes_cleaned\\Fungi",
+      "original_size": 15181,
+      "cleaned_size": 15314,
+      "chars_removed": -133,
+      "compression_ratio": -0.8760951188986232,
+      "operations": [
+        "Segmentation corrigée: --132 chars",
+        "Encodage normalisé: --1 chars",
+        "Contenu structuré: -0 chars"
+      ],
+      "issues_detected": [
+        "text_repetition",
+        "concatenated_words",
+        "special_characters"
+      ]
+    }
+  ]
+}
