@@ -16,6 +16,7 @@ dependencies = [
     "typing>=3.10.0.0",
     "plotly",
     "wordcloud>=1.9.4",
+    "networkx>=3.5",
 ]
 
 # [build-system]
