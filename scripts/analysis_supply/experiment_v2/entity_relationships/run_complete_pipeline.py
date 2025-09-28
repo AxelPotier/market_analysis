@@ -29,12 +29,13 @@ if sys.platform.startswith('win'):
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
 logger = logging.getLogger(__name__)
 
-def clean_text_files(input_directory=None):
+def clean_text_files(input_directory=None, force_all=False):
     """
     Étape 0: Nettoyage préalable des fichiers textes
     """
     print("🧹 ÉTAPE 0: NETTOYAGE DES FICHIERS TEXTES")
     print("🔧 Suppression navigation web, contenu répétitif, correction encodage")
+    print("💡 Traitement incrémental: seuls les nouveaux fichiers sont traités")
     print("="*60)
     
     try:
@@ -55,7 +56,14 @@ def clean_text_files(input_directory=None):
         output_dir = str(input_path.parent / (input_path.name + "_cleaned"))
         
         logger.info(f"🧹 Nettoyage: {input_dir} → {output_dir}")
-        results = cleaner.clean_directory(input_dir, output_dir)
+        
+        # Utiliser le nettoyage incrémental (sauf si force_all est True)
+        results = cleaner.clean_directory(input_dir, output_dir, force_all=force_all)
+        
+        # Gérer le cas où aucun fichier n'a été traité
+        if not results:
+            logger.info("✅ Tous les fichiers sont déjà nettoyés et à jour!")
+            return output_dir
         
         # Vérifier les résultats
         successful_files = [r for r in results if r.get('success', False)]
@@ -69,7 +77,7 @@ def clean_text_files(input_directory=None):
                 logger.warning(f"   • {failed['input_file']}: {failed.get('error', 'Erreur inconnue')}")
         
         # Retourner le dossier de sortie et le succès
-        return output_dir if len(successful_files) > 0 else None
+        return output_dir if len(successful_files) > 0 or not results else None
         
     except Exception as e:
         logger.error(f"❌ Erreur lors du nettoyage: {str(e)}")
@@ -343,9 +351,13 @@ def main():
     
     # Étape 0: Nettoyage (sauf si explicitement ignoré)
     skip_cleaning = input("Ignorer le nettoyage des fichiers? (o/N): ").lower() in ['o', 'oui', 'y', 'yes']
+    force_cleaning = False
     
     if not skip_cleaning:
-        cleaned_directory = clean_text_files(args.input_dir)
+        # Demander si on veut forcer le nettoyage de tous les fichiers
+        force_cleaning = input("Forcer le nettoyage de tous les fichiers? (o/N): ").lower() in ['o', 'oui', 'y', 'yes']
+        
+        cleaned_directory = clean_text_files(args.input_dir, force_all=force_cleaning)
         if not cleaned_directory:
             logger.error("❌ Échec du nettoyage. Arrêt du pipeline.")
             return 1

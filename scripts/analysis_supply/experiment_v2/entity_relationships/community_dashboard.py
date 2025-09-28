@@ -65,6 +65,7 @@ st.set_page_config(
 def load_data():
     """Charge et traite les données du fichier pickle avec nouveau format"""
     try:
+        # with open('scripts/analysis_supply/experiment_v2/entity_relationships/batch_graphdata_chunked_results.pkl', 'rb') as f:
         with open('batch_graphdata_chunked_results.pkl', 'rb') as f:
             data = pickle.load(f)
         
@@ -677,7 +678,7 @@ def create_echarts_network(entities, relations, selected_types=None):
             "layout": "force",
             "data": nodes,
             "links": links,
-            "categories": categories,
+            "categories": categories,   
             "roam": True,
             "focusNodeAdjacency": True,
             "draggable": True,

@@ -13,6 +13,10 @@ import logging
 from datetime import datetime
 import shutil
 import json
+import hashlib
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
+import multiprocessing
+from functools import lru_cache
 
 # Configuration du logging avec support Windows
 logging.basicConfig(
@@ -37,10 +41,12 @@ logger = logging.getLogger(__name__)
 
 class IntelligentTextCleaner:
     """
-    Nettoyeur intelligent pour les fichiers textes musicaux
+    Nettoyeur intelligent pour les fichiers textes musicaux - VERSION OPTIMISÉE
     """
     
-    def __init__(self):
+    def __init__(self, chunk_size: int = 100000, max_workers: int = None):
+        self.chunk_size = chunk_size
+        self.max_workers = max_workers or min(4, multiprocessing.cpu_count())
         self.cleaning_stats = {
             'files_processed': 0,
             'files_failed': 0,
@@ -48,7 +54,7 @@ class IntelligentTextCleaner:
             'operations_performed': []
         }
         
-        # Patterns de nettoyage spécifiques aux sites web musicaux
+        # Patterns de nettoyage spécifiques aux sites web musicaux (définis avant compilation)
         self.web_patterns = {
             # Navigation et menus répétitifs
             'navigation_menu': r'A PROPOS FESTIVALS PRODUCTIONS CONTACT|FESTIVALS PRODUCTIONS CONTACT|CONTACT ART POINT M',
@@ -76,6 +82,70 @@ class IntelligentTextCleaner:
             'addresses': r'\b\d+\s+[A-Za-z\s]+\d{5}\s+[A-Za-z\s]+\b',
         }
         
+        # Précompiler toutes les regex pour de meilleures performances
+        self._compile_regex_patterns()
+        
+    def _compile_regex_patterns(self):
+        """
+        Précompile toutes les expressions régulières pour de meilleures performances
+        """
+        self.compiled_web_patterns = {}
+        for name, pattern in self.web_patterns.items():
+            self.compiled_web_patterns[name] = re.compile(pattern, re.IGNORECASE | re.MULTILINE)
+        
+        # Précompiler les patterns de correction
+        self.compiled_fixes = [
+            (re.compile(r'([.!?:;])([A-Z])'), r'\1 \2'),
+            (re.compile(r'([a-z])([A-Z][a-z])'), r'\1 \2'),
+            (re.compile(r'(\d{4})([A-Za-z])'), r'\1 \2'),
+            (re.compile(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})([A-Z])'), r'\1 \2'),
+            (re.compile(r'\s*\(\s*'), ' ('),
+            (re.compile(r'\s*\)\s*'), ') '),
+            (re.compile(r'\s{2,}'), ' ')
+        ]
+        
+        # Patterns de structure
+        self.repetition_pattern = re.compile(r'(.+?)\1{2,}')
+        self.concatenated_words_pattern = re.compile(r'\w{50,}')
+        self.multiline_spaces = re.compile(r'\n\s*\n\s*\n+')
+        self.final_spaces = re.compile(r'\n{3,}')
+    
+    @lru_cache(maxsize=1000)
+    def _get_text_hash(self, text: str) -> str:
+        """
+        Génère un hash MD5 pour un texte (avec cache pour éviter les recalculs)
+        """
+        return hashlib.md5(text.encode('utf-8')).hexdigest()
+    
+    def _split_text_into_chunks(self, text: str) -> List[str]:
+        """
+        Divise un texte en chunks pour un traitement plus efficace
+        """
+        if len(text) <= self.chunk_size:
+            return [text]
+        
+        chunks = []
+        start = 0
+        
+        while start < len(text):
+            end = start + self.chunk_size
+            
+            # Essayer de couper à la fin d'un paragraphe
+            if end < len(text):
+                next_paragraph = text.find('\n\n', end)
+                if next_paragraph != -1 and next_paragraph - start < self.chunk_size * 1.2:
+                    end = next_paragraph
+                else:
+                    # Sinon couper à la fin d'une phrase
+                    last_sentence = text.rfind('.', start, end)
+                    if last_sentence > start:
+                        end = last_sentence + 1
+            
+            chunks.append(text[start:end])
+            start = end
+        
+        return chunks
+        
     def analyze_file_content(self, file_path: str) -> Dict:
         """
         Analyse un fichier et identifie les problèmes de nettoyage
@@ -100,11 +170,11 @@ class IntelligentTextCleaner:
                 analysis['issues_detected'].append('repeated_menu_structure')
                 analysis['suggested_operations'].append('remove_repeated_menus')
             
-            if len(re.findall(r'(.+?)\1{2,}', content)) > 0:
+            if len(self.repetition_pattern.findall(content)) > 0:
                 analysis['issues_detected'].append('text_repetition')
                 analysis['suggested_operations'].append('remove_repetitive_content')
             
-            if re.search(r'\w{50,}', content):
+            if self.concatenated_words_pattern.search(content):
                 analysis['issues_detected'].append('concatenated_words')
                 analysis['suggested_operations'].append('fix_word_segmentation')
             
@@ -123,81 +193,103 @@ class IntelligentTextCleaner:
     
     def remove_web_navigation(self, text: str) -> Tuple[str, int]:
         """
-        Supprime les éléments de navigation web répétitifs
+        Supprime les éléments de navigation web répétitifs (VERSION OPTIMISÉE)
         """
         original_length = len(text)
         
-        # Supprimer les patterns de navigation
-        for pattern_name, pattern in self.web_patterns.items():
-            text = re.sub(pattern, '', text, flags=re.IGNORECASE | re.MULTILINE)
+        # Supprimer les patterns de navigation avec regex précompilées
+        for pattern_name, compiled_pattern in self.compiled_web_patterns.items():
+            text = compiled_pattern.sub('', text)
         
-        # Nettoyer les espaces multiples résultants
+        # Nettoyer les espaces multiples résultants avec regex précompilées
         text = re.sub(r'\s+', ' ', text)
-        text = re.sub(r'\n\s*\n\s*\n+', '\n\n', text)
+        text = self.multiline_spaces.sub('\n\n', text)
         
         chars_removed = original_length - len(text)
         return text.strip(), chars_removed
     
     def remove_repeated_content(self, text: str) -> Tuple[str, int]:
         """
-        Supprime le contenu répétitif (blocs dupliqués) - VERSION AMÉLIORÉE
+        Supprime le contenu répétitif (blocs dupliqués) - VERSION ULTRA OPTIMISÉE
         """
         original_length = len(text)
         
         # 1. SUPPRESSION SPÉCIFIQUE DES LISTES RÉPÉTITIVES ART POINT M
-        # Détecter et supprimer la liste répétitive de productions (pattern corrigé)
-        production_pattern = r'/\\/\\ PRODUCTIONS Les Eurockéennes.*?(?=Art Point M|/\\/\\|$)'
-        text = re.sub(production_pattern, '\n[LISTE ÉVÉNEMENTS SUPPRIMÉE]\n', text, flags=re.DOTALL)
+        production_pattern = re.compile(r'/\\/\\ PRODUCTIONS Les Eurockéennes.*?(?=Art Point M|/\\/\\|$)', re.DOTALL)
+        text = production_pattern.sub('\n[LISTE ÉVÉNEMENTS SUPPRIMÉE]\n', text)
         
-        # Supprimer les longues listes d'événements répétées
-        long_list_pattern = r'(Les Eurockéennes Juillet 2024 DRAGUE ME.*?Point M\s*){2,}'
-        text = re.sub(long_list_pattern, r'\1', text, flags=re.DOTALL)
+        # Patterns précompilés pour de meilleures performances
+        long_list_pattern = re.compile(r'(Les Eurockéennes Juillet 2024 DRAGUE ME.*?Point M\s*){2,}', re.DOTALL)
+        text = long_list_pattern.sub(r'\1', text)
         
-        # Supprimer les répétitions de "Art Point M" en début/fin de sections
-        text = re.sub(r'(Art Point M\s*){2,}', 'Art Point M ', text)
+        art_point_pattern = re.compile(r'(Art Point M\s*){2,}')
+        text = art_point_pattern.sub('Art Point M ', text)
         
-        # Supprimer complètement les blocs répétitifs très longs
-        repetitive_block = r'Les Eurockéennes Juillet 2024 DRAGUE ME Show Drag et Queer PARADE.*?SCÉNOGRAPHIE Point M'
-        if text.count('Les Eurockéennes Juillet 2024 DRAGUE ME') > 5:  # Si répété plus de 5 fois
-            # Garder seulement la première occurrence
-            parts = re.split(repetitive_block, text)
+        # Traitement plus intelligent des blocs répétitifs
+        drague_count = text.count('Les Eurockéennes Juillet 2024 DRAGUE ME')
+        if drague_count > 5:
+            repetitive_block = re.compile(r'Les Eurockéennes Juillet 2024 DRAGUE ME Show Drag et Queer PARADE.*?SCÉNOGRAPHIE Point M', re.DOTALL)
+            parts = repetitive_block.split(text)
             if len(parts) > 1:
                 text = parts[0] + '\n[BLOC RÉPÉTITIF SUPPRIMÉ]\n' + parts[-1]
         
-        # 2. NETTOYAGE STANDARD DES PARAGRAPHES DUPLIQUÉS
-        # Diviser en paragraphes
+        # 2. NETTOYAGE OPTIMISÉ DES PARAGRAPHES DUPLIQUÉS
         paragraphs = [p.strip() for p in text.split('\n\n') if p.strip()]
         
-        # Supprimer les paragraphes dupliqués (seuil de similarité)
+        if len(paragraphs) > 100:
+            # Pour les gros fichiers, utiliser un traitement par chunks
+            return self._remove_repeated_content_chunked(paragraphs, original_length)
+        
+        # Version standard pour les fichiers moyens
         cleaned_paragraphs = []
-        seen_content = set()
+        seen_hashes = set()
         
         for paragraph in paragraphs:
-            # Normaliser pour la comparaison
+            # Si le paragraphe est très court, le garder sans vérification
+            if len(paragraph) < 50:
+                cleaned_paragraphs.append(paragraph)
+                continue
+            
+            # Utiliser un hash pour comparaison ultra-rapide
             normalized = re.sub(r'\s+', ' ', paragraph.lower().strip())
+            text_hash = self._get_text_hash(normalized)
             
-            # Si le paragraphe est très court, le garder
-            if len(normalized) < 50:
-                cleaned_paragraphs.append(paragraph)
-                continue
-            
-            # NOUVEAUTÉ : Ignorer les listes répétitives d'événements
-            if self._is_repetitive_event_list(normalized):
-                if normalized not in seen_content:  # Garder seulement la première occurrence
+            if text_hash not in seen_hashes:
+                # Vérification supplémentaire pour les listes répétitives
+                if not self._is_repetitive_event_list(normalized):
                     cleaned_paragraphs.append(paragraph)
-                    seen_content.add(normalized)
-                continue
+                    seen_hashes.add(text_hash)
+                elif text_hash not in seen_hashes:
+                    cleaned_paragraphs.append(paragraph)
+                    seen_hashes.add(text_hash)
+        
+        cleaned_text = '\n\n'.join(cleaned_paragraphs)
+        chars_removed = original_length - len(cleaned_text)
+        
+        return cleaned_text, chars_removed
+    
+    def _remove_repeated_content_chunked(self, paragraphs: List[str], original_length: int) -> Tuple[str, int]:
+        """
+        Version optimisée pour les gros fichiers avec traitement par chunks
+        """
+        cleaned_paragraphs = []
+        seen_hashes = set()
+        chunk_size = 50  # Traiter par groupes de 50 paragraphes
+        
+        for i in range(0, len(paragraphs), chunk_size):
+            chunk = paragraphs[i:i + chunk_size]
             
-            # Vérifier la similarité avec les paragraphes déjà vus
-            is_duplicate = False
-            for seen in seen_content:
-                if len(set(normalized.split()) & set(seen.split())) / len(set(normalized.split()) | set(seen.split())) > 0.8:
-                    is_duplicate = True
-                    break
-            
-            if not is_duplicate:
-                cleaned_paragraphs.append(paragraph)
-                seen_content.add(normalized)
+            for paragraph in chunk:
+                if len(paragraph) < 50:
+                    cleaned_paragraphs.append(paragraph)
+                    continue
+                
+                normalized = re.sub(r'\s+', ' ', paragraph.lower().strip())
+                text_hash = self._get_text_hash(normalized)
+                
+                if text_hash not in seen_hashes:
+                    cleaned_paragraphs.append(paragraph)
+                    seen_hashes.add(text_hash)
         
         cleaned_text = '\n\n'.join(cleaned_paragraphs)
         chars_removed = original_length - len(cleaned_text)
@@ -206,34 +298,13 @@ class IntelligentTextCleaner:
     
     def fix_word_segmentation(self, text: str) -> Tuple[str, int]:
         """
-        Corrige la segmentation des mots collés
+        Corrige la segmentation des mots collés (VERSION OPTIMISÉE)
         """
         original_length = len(text)
         
-        # Patterns courants de mots collés
-        fixes = [
-            # Correction des espaces manquants après la ponctuation
-            (r'([.!?:;])([A-Z])', r'\1 \2'),
-            
-            # Séparer les mots collés avec des majuscules
-            (r'([a-z])([A-Z][a-z])', r'\1 \2'),
-            
-            # Corriger les dates collées
-            (r'(\d{4})([A-Za-z])', r'\1 \2'),
-            
-            # Corriger les emails collés
-            (r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})([A-Z])', r'\1 \2'),
-            
-            # Espaces avant/après parenthèses
-            (r'\s*\(\s*', ' ('),
-            (r'\s*\)\s*', ') '),
-            
-            # Espaces multiples
-            (r'\s{2,}', ' ')
-        ]
-        
-        for pattern, replacement in fixes:
-            text = re.sub(pattern, replacement, text)
+        # Utiliser les regex précompilées pour de meilleures performances
+        for compiled_pattern, replacement in self.compiled_fixes:
+            text = compiled_pattern.sub(replacement, text)
         
         chars_removed = original_length - len(text)
         return text.strip(), chars_removed
@@ -379,9 +450,9 @@ class IntelligentTextCleaner:
             total_chars_removed += chars_removed
             operations_log.append(f"Contenu structuré: -{chars_removed} chars")
             
-            # Nettoyage final
+            # Nettoyage final avec regex précompilée
             content = content.strip()
-            content = re.sub(r'\n{3,}', '\n\n', content)  # Max 2 retours à la ligne consécutifs
+            content = self.final_spaces.sub('\n\n', content)  # Max 2 retours à la ligne consécutifs
             
             # Créer le dossier de sortie si nécessaire
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -422,9 +493,54 @@ class IntelligentTextCleaner:
                 'error': str(e)
             }
     
-    def clean_directory(self, input_dir: str, output_dir: str) -> List[Dict]:
+    def get_files_to_process(self, input_dir: str, output_dir: str) -> List[Path]:
         """
-        Nettoie tous les fichiers d'un répertoire
+        Détermine quels fichiers doivent être traités (nouveaux ou modifiés)
+        """
+        input_path = Path(input_dir)
+        output_path = Path(output_dir)
+        
+        # Tous les fichiers source
+        all_input_files = [f for f in input_path.iterdir() if f.is_file()]
+        
+        if not output_path.exists():
+            logger.info("📁 Dossier de destination n'existe pas - traitement de tous les fichiers")
+            return all_input_files
+        
+        # Fichiers déjà traités
+        existing_output_files = {f.name for f in output_path.iterdir() if f.is_file()}
+        
+        # Filtrer les fichiers à traiter
+        files_to_process = []
+        for input_file in all_input_files:
+            output_file_path = output_path / input_file.name
+            
+            # Traiter si le fichier de sortie n'existe pas
+            if input_file.name not in existing_output_files:
+                files_to_process.append(input_file)
+                continue
+            
+            # Traiter si le fichier source est plus récent que le fichier de sortie
+            if input_file.stat().st_mtime > output_file_path.stat().st_mtime:
+                files_to_process.append(input_file)
+                continue
+        
+        # Statistiques
+        skipped_count = len(all_input_files) - len(files_to_process)
+        if skipped_count > 0:
+            logger.info(f"⏩ {skipped_count} fichiers déjà traités et à jour - ignorés")
+        
+        return files_to_process
+
+    def clean_directory(self, input_dir: str, output_dir: str, force_all: bool = False, use_parallel: bool = True) -> List[Dict]:
+        """
+        Nettoie tous les fichiers d'un répertoire (VERSION PARALLÉLISÉE)
+        
+        Args:
+            input_dir: Répertoire source
+            output_dir: Répertoire destination
+            force_all: Si True, traite tous les fichiers même s'ils existent déjà
+            use_parallel: Si True, utilise le traitement parallèle
         """
         input_path = Path(input_dir)
         output_path = Path(output_dir)
@@ -435,25 +551,62 @@ class IntelligentTextCleaner:
         # Créer le répertoire de sortie
         output_path.mkdir(parents=True, exist_ok=True)
         
-        # Lister les fichiers à traiter
-        files_to_process = [f for f in input_path.iterdir() if f.is_file()]
+        # Déterminer les fichiers à traiter
+        if force_all:
+            files_to_process = [f for f in input_path.iterdir() if f.is_file()]
+            logger.info("🔄 Mode FORCE: traitement de tous les fichiers")
+        else:
+            files_to_process = self.get_files_to_process(input_dir, output_dir)
         
         logger.info(f"🧹 NETTOYAGE DE {len(files_to_process)} FICHIERS")
         logger.info(f"📁 Source: {input_path}")
         logger.info(f"📁 Destination: {output_path}")
+        if use_parallel:
+            logger.info(f"⚡ Mode parallèle activé ({self.max_workers} workers)")
         logger.info("="*60)
+        
+        if not files_to_process:
+            logger.info("✅ Tous les fichiers sont déjà nettoyés et à jour!")
+            return []
         
         results = []
         
-        for file_path in files_to_process:
-            output_file_path = output_path / file_path.name
-            result = self.clean_single_file(str(file_path), str(output_file_path))
-            results.append(result)
+        if use_parallel and len(files_to_process) > 1:
+            # Traitement parallèle pour plusieurs fichiers
+            file_pairs = [(str(f), str(output_path / f.name)) for f in files_to_process]
+            
+            with ProcessPoolExecutor(max_workers=self.max_workers) as executor:
+                parallel_results = list(executor.map(self._clean_file_parallel, file_pairs))
+                results.extend(parallel_results)
+                
+                # Mettre à jour les statistiques globales
+                for result in parallel_results:
+                    if result.get('success', False):
+                        self.cleaning_stats['files_processed'] += 1
+                        self.cleaning_stats['total_chars_removed'] += result.get('chars_removed', 0)
+                    else:
+                        self.cleaning_stats['files_failed'] += 1
+        else:
+            # Traitement séquentiel
+            for file_path in files_to_process:
+                output_file_path = output_path / file_path.name
+                result = self.clean_single_file(str(file_path), str(output_file_path))
+                results.append(result)
         
         # Sauvegarder le rapport de nettoyage
         self._save_cleaning_report(results, output_path)
         
         return results
+    
+    @staticmethod
+    def _clean_file_parallel(file_pair: Tuple[str, str]) -> Dict:
+        """
+        Fonction statique pour le traitement parallèle des fichiers
+        """
+        input_path, output_path = file_pair
+        # Créer une nouvelle instance pour éviter les conflits de thread
+        cleaner = IntelligentTextCleaner()
+        return cleaner.clean_single_file(input_path, output_path)
     
     def _save_cleaning_report(self, results: List[Dict], output_dir: Path):
         """
@@ -514,19 +667,29 @@ def main():
     if custom_output.strip():
         output_directory = custom_output.strip()
     
+    # Option pour forcer le traitement de tous les fichiers
+    force_all = input("Forcer le traitement de tous les fichiers? (o/N): ").lower() in ['o', 'oui', 'y', 'yes']
+    
     try:
         # Initialiser le nettoyeur
         cleaner = IntelligentTextCleaner()
         
-        # Nettoyer tous les fichiers
-        results = cleaner.clean_directory(input_directory, output_directory)
+        # Options de performance
+        use_parallel = input("Utiliser le traitement parallèle? (O/n): ").lower() not in ['n', 'no', 'non']
+        
+        # Nettoyer les fichiers avec optimisations
+        results = cleaner.clean_directory(input_directory, output_directory, force_all=force_all, use_parallel=use_parallel)
         
         # Afficher le résumé
         cleaner.print_cleaning_summary()
         
-        print(f"\n✅ Nettoyage terminé!")
-        print(f"📁 Fichiers nettoyés disponibles dans: {output_directory}")
-        print(f"📋 Voir le rapport détaillé: {output_directory}/cleaning_report.json")
+        if results:
+            print(f"\n✅ Nettoyage terminé!")
+            print(f"📁 Fichiers nettoyés disponibles dans: {output_directory}")
+            print(f"📋 Voir le rapport détaillé: {output_directory}/cleaning_report.json")
+        else:
+            print(f"\n✅ Aucun nouveau fichier à traiter!")
+            print(f"📁 Tous les fichiers sont déjà nettoyés dans: {output_directory}")
         
         return 0
         

@@ -647,3 +647,73 @@
 2025-09-14 16:54:06,336 - INFO - 📄 Nettoyage: Flonflons (100,641 caractères)
 2025-09-14 16:56:57,240 - INFO -   ✅ Nettoyé: 100,631 chars (-0.0%)
 2025-09-14 16:56:57,290 - INFO - 📄 Nettoyage: Ginger (4,701,120 caractères)
+2025-09-15 22:31:07,540 - INFO - 🧹 Nettoyage: D:\market_analysis\data\data_supply\webscrapped_texts → D:\market_analysis\data\data_supply\webscrapped_texts_cleaned
+2025-09-15 22:31:07,572 - INFO - ⏩ 25 fichiers déjà traités et à jour - ignorés
+2025-09-15 22:31:07,573 - INFO - 🧹 NETTOYAGE DE 60 FICHIERS
+2025-09-15 22:31:07,573 - INFO - 📁 Source: D:\market_analysis\data\data_supply\webscrapped_texts
+2025-09-15 22:31:07,573 - INFO - 📁 Destination: D:\market_analysis\data\data_supply\webscrapped_texts_cleaned
+2025-09-15 22:31:07,574 - INFO - ============================================================
+2025-09-15 22:31:07,634 - INFO - 📄 Nettoyage: Ginger (4,701,120 caractères)
+2025-09-27 18:13:04,084 - INFO - ⏩ Nettoyage ignoré
+2025-09-27 18:13:08,572 - INFO - NumExpr defaulting to 8 threads.
+2025-09-27 18:13:54,970 - INFO - PyTorch version 2.5.1 available.
+2025-09-27 18:13:54,973 - INFO - Polars version 1.11.0 available.
+2025-09-27 18:14:16,273 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:14:49,047 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:15:36,993 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:16:22,057 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:31:22,228 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 18:31:57,257 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:32:53,015 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:33:11,114 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:35:02,852 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:35:25,107 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 18:50:25,383 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 19:05:25,610 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 19:20:26,296 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 19:35:27,186 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 19:50:27,891 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 19:50:50,478 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:05:50,654 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 20:21:49,499 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 20:23:40,742 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:24:33,185 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:39:33,378 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 20:46:54,556 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:49:29,882 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:49:48,728 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:49:49,751 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 20:50:00,377 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:05:00,745 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 21:20:01,737 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 21:22:10,136 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:37:10,802 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 21:37:22,616 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:37:22,806 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-09-27 21:37:34,647 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:41:08,228 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:48:41,744 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 21:48:50,050 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:03:50,273 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 22:03:55,765 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:04:09,307 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:05:05,270 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:05:21,659 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:07:37,264 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:12:42,836 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:23:48,408 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:24:11,594 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:39:11,725 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 22:41:30,177 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:41:30,596 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:41:54,628 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:56:54,810 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 22:57:41,473 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:59:05,498 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:59:29,528 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 22:59:30,062 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 23:14:30,273 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 23:29:31,161 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 23:44:31,818 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"
+2025-09-27 23:44:32,876 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-27 23:59:34,683 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 504 Gateway Timeout"

@@ -1,0 +1,6 @@
+{
+  "chunk_id": "La_Lune_des_Pirates_chunk2",
+  "status": "failed",
+  "error": "API error occurred: Status 504\n{\n  \"message\":\"The upstream server is timing out\",\n  \"request_id\":\"c1c8eb4326cc231c757a79129d4a2d58\"\n}",
+  "processed_at": "2025-09-27T23:29:31.164320"
+}

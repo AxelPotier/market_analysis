@@ -1,0 +1,6 @@
+{
+  "chunk_id": "Les_4Ecluses_chunk1",
+  "status": "failed",
+  "error": "API error occurred: Status 504\n{\n  \"message\":\"The upstream server is timing out\",\n  \"request_id\":\"bf61203c0c266e1f144c4f6ae4e3c972\"\n}",
+  "processed_at": "2025-09-27T23:59:34.686039"
+}

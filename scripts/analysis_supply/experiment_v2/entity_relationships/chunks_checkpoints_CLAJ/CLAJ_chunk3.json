@@ -1,0 +1,6 @@
+{
+  "chunk_id": "CLAJ_chunk3",
+  "status": "failed",
+  "error": "API error occurred: Status 504\n{\n  \"message\":\"The upstream server is timing out\",\n  \"request_id\":\"4e908b0cac93e17775e6d036b06d690e\"\n}",
+  "processed_at": "2025-09-27T19:35:27.188657"
+}
