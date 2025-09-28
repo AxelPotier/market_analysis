@@ -590,3 +590,60 @@
 2025-08-24 16:40:49,516 - ERROR - Erreur calcul statistique sample_entities: 'count'
 2025-08-24 16:40:49,520 - ERROR - Erreur calcul statistique sample_events: 'count'
 2025-08-24 16:40:49,539 - INFO - Connexion Neo4j fermee
+2025-09-14 14:54:15,949 - INFO - ============================================================
+2025-09-14 14:57:47,681 - INFO - 🧹 Nettoyage: ../../../../data/data_supply/webscrapped_texts → ..\..\..\..\data\data_supply\webscrapped_texts_cleaned
+2025-09-14 14:57:47,692 - INFO - 🧹 NETTOYAGE DE 85 FICHIERS
+2025-09-14 14:57:47,693 - INFO - 📁 Source: ..\..\..\..\data\data_supply\webscrapped_texts
+2025-09-14 14:57:47,693 - INFO - 📁 Destination: ..\..\..\..\data\data_supply\webscrapped_texts_cleaned
+2025-09-14 14:57:47,694 - INFO - ============================================================
+2025-09-14 14:57:47,695 - INFO - 📄 Nettoyage: Ah_Bon___productions (0 caractères)
+2025-09-14 14:57:47,697 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Ah_Bon___productions: division by zero
+2025-09-14 14:57:47,697 - INFO - 📄 Nettoyage: Amikal_sonic (830 caractères)
+2025-09-14 14:57:47,716 - INFO -   ✅ Nettoyé: 830 chars (-0.0%)
+2025-09-14 14:57:47,717 - INFO - 📄 Nettoyage: Art_Point_M (59,077 caractères)
+2025-09-14 14:58:52,504 - INFO -   ✅ Nettoyé: 26,570 chars (-55.0%)
+2025-09-14 14:58:52,505 - INFO - 📄 Nettoyage: Art_Zoyd_studios (5,614 caractères)
+2025-09-14 14:58:53,053 - INFO -   ✅ Nettoyé: 5,614 chars (-0.0%)
+2025-09-14 14:58:53,054 - INFO - 📄 Nettoyage: Attacafa (111,850 caractères)
+2025-09-14 15:03:09,980 - INFO -   ✅ Nettoyé: 111,905 chars (--0.0%)
+2025-09-14 15:03:09,981 - INFO - 📄 Nettoyage: A_Gauche_de_la_Lune (7,957 caractères)
+2025-09-14 15:03:12,276 - INFO -   ✅ Nettoyé: 7,965 chars (--0.1%)
+2025-09-14 15:03:12,280 - INFO - 📄 Nettoyage: Bougez_Rock (0 caractères)
+2025-09-14 15:03:12,286 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Bougez_Rock: division by zero
+2025-09-14 15:03:12,289 - INFO - 📄 Nettoyage: Bruit_Blanc (15,581 caractères)
+2025-09-14 15:03:16,982 - INFO -   ✅ Nettoyé: 15,585 chars (--0.0%)
+2025-09-14 15:03:16,983 - INFO - 📄 Nettoyage: Celebration_Days_records (4,499 caractères)
+2025-09-14 15:03:17,000 - INFO -   ✅ Nettoyé: 5,124 chars (--13.9%)
+2025-09-14 15:03:17,002 - INFO - 📄 Nettoyage: Cerbère_Coryphée (82,099 caractères)
+2025-09-14 15:05:19,031 - INFO -   ✅ Nettoyé: 82,191 chars (--0.1%)
+2025-09-14 15:05:19,034 - INFO - 📄 Nettoyage: CLAJ (365,993 caractères)
+2025-09-14 15:46:12,826 - INFO -   ✅ Nettoyé: 365,993 chars (-0.0%)
+2025-09-14 15:46:12,827 - INFO - 📄 Nettoyage: Comala_radio (2,470 caractères)
+2025-09-14 15:46:14,573 - INFO -   ✅ Nettoyé: 2,470 chars (-0.0%)
+2025-09-14 15:46:14,575 - INFO - 📄 Nettoyage: Compagnie_du_Tire-Laine (291,114 caractères)
+2025-09-14 16:10:06,739 - INFO -   ✅ Nettoyé: 291,023 chars (-0.0%)
+2025-09-14 16:10:06,740 - INFO - 📄 Nettoyage: Didouda (15,648 caractères)
+2025-09-14 16:10:11,211 - INFO -   ✅ Nettoyé: 15,659 chars (--0.1%)
+2025-09-14 16:10:11,213 - INFO - 📄 Nettoyage: Divan_productions (303,218 caractères)
+2025-09-14 16:34:51,860 - INFO -   ✅ Nettoyé: 303,175 chars (-0.0%)
+2025-09-14 16:34:51,861 - INFO - 📄 Nettoyage: Dreamerfest (0 caractères)
+2025-09-14 16:34:53,473 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Dreamerfest: division by zero
+2025-09-14 16:34:53,474 - INFO - 📄 Nettoyage: Droit_de_Cité (5,780 caractères)
+2025-09-14 16:34:54,093 - INFO -   ✅ Nettoyé: 5,788 chars (--0.1%)
+2025-09-14 16:34:54,095 - INFO - 📄 Nettoyage: Dynamo (223,675 caractères)
+2025-09-14 16:48:27,079 - INFO -   ✅ Nettoyé: 223,677 chars (--0.0%)
+2025-09-14 16:48:27,080 - INFO - 📄 Nettoyage: Enlace_records (17,762 caractères)
+2025-09-14 16:48:32,670 - INFO -   ✅ Nettoyé: 17,910 chars (--0.8%)
+2025-09-14 16:48:32,671 - INFO - 📄 Nettoyage: Europa_production (0 caractères)
+2025-09-14 16:48:32,711 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Europa_production: division by zero
+2025-09-14 16:48:32,711 - INFO - 📄 Nettoyage: Face_B (0 caractères)
+2025-09-14 16:48:32,713 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Face_B: division by zero
+2025-09-14 16:48:32,713 - INFO - 📄 Nettoyage: Festiv'art (0 caractères)
+2025-09-14 16:48:32,715 - ERROR - ❌ Erreur nettoyage ..\..\..\..\data\data_supply\webscrapped_texts\Festiv'art: division by zero
+2025-09-14 16:48:32,715 - INFO - 📄 Nettoyage: Festival_Jazz'titudes (143,336 caractères)
+2025-09-14 16:54:01,520 - INFO -   ✅ Nettoyé: 143,358 chars (--0.0%)
+2025-09-14 16:54:01,521 - INFO - 📄 Nettoyage: Festival_Pic'Arts (16,520 caractères)
+2025-09-14 16:54:06,334 - INFO -   ✅ Nettoyé: 16,520 chars (-0.0%)
+2025-09-14 16:54:06,336 - INFO - 📄 Nettoyage: Flonflons (100,641 caractères)
+2025-09-14 16:56:57,240 - INFO -   ✅ Nettoyé: 100,631 chars (-0.0%)
+2025-09-14 16:56:57,290 - INFO - 📄 Nettoyage: Ginger (4,701,120 caractères)

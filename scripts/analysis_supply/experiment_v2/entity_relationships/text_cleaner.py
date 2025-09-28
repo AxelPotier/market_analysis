@@ -14,8 +14,25 @@ from datetime import datetime
 import shutil
 import json
 
-# Configuration du logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Configuration du logging avec support Windows
+logging.basicConfig(
+    level=logging.INFO, 
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
+
+# Fix pour Windows - éviter les erreurs d'encodage des emojis  
+import sys
+if sys.platform.startswith('win'):
+    try:
+        import codecs
+        if hasattr(sys.stdout, 'detach'):
+            sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
+    except:
+        pass  # Ignorer si ça ne fonctionne pas
+
 logger = logging.getLogger(__name__)
 
 class IntelligentTextCleaner:

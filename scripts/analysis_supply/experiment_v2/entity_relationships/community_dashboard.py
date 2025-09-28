@@ -65,7 +65,7 @@ st.set_page_config(
 def load_data():
     """Charge et traite les données du fichier pickle avec nouveau format"""
     try:
-        with open('scripts/analysis_supply/experiment_v2/entity_relationships/batch_graphdata_chunked_results.pkl', 'rb') as f:
+        with open('batch_graphdata_chunked_results.pkl', 'rb') as f:
             data = pickle.load(f)
         
         # with open("dataset_cleaned_for_neo4j_dashboard.json", "r", encoding="utf-8") as f:

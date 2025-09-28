@@ -17,13 +17,19 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('pipeline_complete.log'),
+        logging.FileHandler('pipeline_complete.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
+
+# Fix pour Windows - éviter les erreurs d'encodage des emojis
+import sys
+if sys.platform.startswith('win'):
+    import codecs
+    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.detach())
 logger = logging.getLogger(__name__)
 
-def clean_text_files():
+def clean_text_files(input_directory=None):
     """
     Étape 0: Nettoyage préalable des fichiers textes
     """
@@ -36,8 +42,17 @@ def clean_text_files():
         from text_cleaner import IntelligentTextCleaner
         
         cleaner = IntelligentTextCleaner()
-        input_dir = "../../../../data/data_supply/textes"
-        output_dir = "../../../../data/data_supply/textes_cleaned"
+        
+        # Utiliser le dossier fourni ou demander à l'utilisateur
+        if input_directory:
+            input_dir = input_directory
+        else:
+            default_input = "../../../../data/data_supply/textes"
+            input_dir = input("Dossier des fichiers textes d'entrée (défaut: {}): ".format(default_input)) or default_input
+        
+        # Créer le dossier de sortie basé sur le dossier d'entrée
+        input_path = Path(input_dir)
+        output_dir = str(input_path.parent / (input_path.name + "_cleaned"))
         
         logger.info(f"🧹 Nettoyage: {input_dir} → {output_dir}")
         results = cleaner.clean_directory(input_dir, output_dir)
@@ -53,13 +68,14 @@ def clean_text_files():
             for failed in failed_files[:3]:  # Afficher les 3 premières erreurs
                 logger.warning(f"   • {failed['input_file']}: {failed.get('error', 'Erreur inconnue')}")
         
-        return len(successful_files) > 0
+        # Retourner le dossier de sortie et le succès
+        return output_dir if len(successful_files) > 0 else None
         
     except Exception as e:
         logger.error(f"❌ Erreur lors du nettoyage: {str(e)}")
-        return False
+        return None
 
-def run_batch_processing():
+def run_batch_processing(input_directory=None):
     """
     Étape 1: Traitement batch des fichiers textes nettoyés (avec support chunking)
     """
@@ -73,8 +89,13 @@ def run_batch_processing():
         
         processor = ChunkedBatchGraphDataProcessor()
         
-        # Traiter les fichiers nettoyés au lieu des originaux
-        directory_path = "../../../../data/data_supply/textes_cleaned"
+        # Utiliser le dossier fourni ou demander à l'utilisateur
+        if input_directory:
+            directory_path = input_directory
+        else:
+            default_path = "../../../../data/data_supply/textes_cleaned"
+            directory_path = input("Dossier des fichiers textes à traiter (défaut: {}): ".format(default_path)) or default_path
+        
         results = processor.process_directory(directory_path)
         
         # Sauvegarder les résultats
@@ -296,6 +317,7 @@ def main():
     parser.add_argument("--skip-extraction", action="store_true", help="Ignorer l'extraction et utiliser les données existantes")
     parser.add_argument("--skip-neo4j", action="store_true", help="Ignorer l'insertion Neo4j")
     parser.add_argument("--results-file", default="batch_graphdata_chunked_results.pkl", help="Fichier de résultats GraphData")
+    parser.add_argument("--input-dir", type=str, help="Dossier des fichiers textes d'entrée")
     
     args = parser.parse_args()
     
@@ -303,21 +325,39 @@ def main():
     print("="*60)
     print(f"⏰ Début du traitement: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
+    # Afficher les options configurées
+    if args.input_dir:
+        print(f"📁 Dossier d'entrée spécifié: {args.input_dir}")
+    
+    print("💡 Options disponibles:")
+    print("   --input-dir <dossier>     : Spécifier le dossier des fichiers textes")
+    print("   --skip-extraction         : Ignorer l'extraction (utiliser données existantes)")
+    print("   --skip-neo4j             : Ignorer l'insertion Neo4j")
+    print("   --results-file <fichier>  : Fichier de résultats personnalisé")
+    print()
+    
     start_time = datetime.now()
+    
+    # Variables pour le pipeline
+    cleaned_directory = None
     
     # Étape 0: Nettoyage (sauf si explicitement ignoré)
     skip_cleaning = input("Ignorer le nettoyage des fichiers? (o/N): ").lower() in ['o', 'oui', 'y', 'yes']
     
     if not skip_cleaning:
-        if not clean_text_files():
+        cleaned_directory = clean_text_files(args.input_dir)
+        if not cleaned_directory:
             logger.error("❌ Échec du nettoyage. Arrêt du pipeline.")
             return 1
     else:
         logger.info("⏩ Nettoyage ignoré")
+        cleaned_directory = args.input_dir  # Utiliser le dossier d'entrée directement
 
     # Étape 1: Extraction GraphData
     if not args.skip_extraction:
-        if not run_batch_processing():
+        # Utiliser le dossier nettoyé ou le dossier d'entrée spécifié
+        processing_directory = cleaned_directory if cleaned_directory else args.input_dir
+        if not run_batch_processing(processing_directory):
             logger.error("❌ Échec du traitement batch. Arrêt du pipeline.")
             return 1
     else:
